@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DashboardPage /> should render and match the snapshot 1`] = `
+<React.Fragment>
+  <Helmet
+    defer={true}
+    encodeSpecialCharacters={true}
+    prioritizeSeoTags={false}
+  >
+    <title>
+      Dashboard Page
+    </title>
+    <meta
+      content="A React Boilerplate application homepage"
+      name="description"
+    />
+  </Helmet>
+  <NavBar />
+  <PageWrapper>
+    <Dashboard__Container>
+      <Projects />
+    </Dashboard__Container>
+  </PageWrapper>
+</React.Fragment>
+`;

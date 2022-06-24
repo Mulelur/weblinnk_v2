@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SideBar /> should match snapshot 1`] = `
+<SideBar__Wrapper>
+  <Logo />
+  <SideBar__Divider />
+  <Nav />
+</SideBar__Wrapper>
+`;

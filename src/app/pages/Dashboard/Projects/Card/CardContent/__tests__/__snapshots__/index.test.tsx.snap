@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardContent /> should render and match the snapshot 1`] = `
+<React.Fragment>
+  <CardContent__Wrapper>
+    <CardContent__Container>
+      <styled.h1>
+        Projects
+      </styled.h1>
+    </CardContent__Container>
+  </CardContent__Wrapper>
+</React.Fragment>
+`;

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProjectDashboardPage /> should render and match the snapshot 1`] = `
+<React.Fragment>
+  <Helmet
+    defer={true}
+    encodeSpecialCharacters={true}
+    prioritizeSeoTags={false}
+  >
+    <title>
+      ProjectDashboard Page
+    </title>
+    <meta
+      content="A React Boilerplate application homepage"
+      name="description"
+    />
+  </Helmet>
+  <styled.div>
+    <SideBar />
+    <BrowserRouter>
+      <Switch>
+        <Route
+          component={[Function]}
+          path="/"
+        />
+      </Switch>
+    </BrowserRouter>
+  </styled.div>
+</React.Fragment>
+`;

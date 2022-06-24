@@ -15,7 +15,7 @@ const darkTheme: Theme = {
   background: 'rgba(0,0,0,1)',
   backgroundVariant: 'rgba(28,26,26,1)',
   border: 'rgba(241,233,231,0.15)',
-  borderLight: 'rgba(241,233,231,0.05)',
+  borderLight: '#2c2525',
 };
 
 export type Theme = typeof lightTheme;

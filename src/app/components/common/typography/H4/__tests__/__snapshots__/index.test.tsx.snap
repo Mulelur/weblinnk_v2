@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<H4 /> should match snapshot 1`] = `
+.c0 {
+  font-weight: 500;
+}
+
+<h4
+  class="c0"
+/>
+`;

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardActions /> should render with en translations 1`] = `
+<React.Fragment>
+  <CardActions__Wrapper>
+    <CardActions__Container>
+      <H4>
+        Edited
+      </H4>
+    </CardActions__Container>
+  </CardActions__Wrapper>
+</React.Fragment>
+`;

@@ -27,6 +27,21 @@ exports[`<App /> should render and match the snapshot 1`] = `
     />
     <Route
       component={[Function]}
+      exact={true}
+      path="/dashboard"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/dashboard/1"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/signin"
+    />
+    <Route
+      component={[Function]}
     />
   </Switch>
   <Memo(l) />
