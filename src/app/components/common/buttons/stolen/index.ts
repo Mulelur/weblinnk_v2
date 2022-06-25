@@ -1,9 +1,9 @@
 import styled from 'styled-components';
+import { StyleConstants } from 'styles/StyleConstants';
 
 export const StolenButton = styled.button`
-  background-color: ${p => p.theme.primary};
-  color: var(--button-color, #ffffff);
-  background-color: var(--button-background, #5c89de);
+  background-color: ${p => p.theme.background};
+  color: ${p => p.theme.primary};
   display: table;
   border: none;
   position: relative;
@@ -16,7 +16,7 @@ export const StolenButton = styled.button`
   white-space: nowrap;
   text-align: center;
   appearance: none;
-  border-radius: var(--button-border-radius);
+  border-radius: ${StyleConstants.BUTTON_BORDER_RADIUS};
   line-height: 20px;
   letter-spacing: -0.125px;
   padding: 10px var(--button-padding-h, 24px);

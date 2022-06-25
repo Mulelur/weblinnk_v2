@@ -67,7 +67,7 @@ export const FormGroup = styled.div`
   flex-direction: column;
   width: 100%;
 
-  &:not(:first-child) {
-    padding-top: 0.8rem;
-  }
+  // &:not(:first-child) {
+  //   padding-top: 0.8rem;
+  // }
 `;

@@ -133,18 +133,6 @@ Array [
       >
         <a
           className="c7"
-          href="https://cansahin.gitbook.io/react-boilerplate-cra-template/"
-          rel="noopener noreferrer"
-          target="_blank"
-          title="Documentation Page"
-        >
-          <svg>
-            documentation-icon.svg
-          </svg>
-          Documentation
-        </a>
-        <a
-          className="c7"
           href="https://github.com/react-boilerplate/react-boilerplate-cra-template"
           rel="noopener noreferrer"
           target="_blank"

@@ -26,7 +26,7 @@ export function Nav() {
   );
 }
 
-const Wrapper = styled.nav`
+const Wrapper = styled.div`
   display: flex;
   margin-right: -1rem;
   color: ${p => p.theme.primary};

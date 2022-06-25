@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Upgrade /> should match snapshot 1`] = `
+<Upgrade__Container>
+  <Upgrade__Content>
+    <Upgrade__Title>
+      Upgrade Your Plan Now
+    </Upgrade__Title>
+    <Upgrade__ButtonWarper>
+      <styled.button>
+        Upgrade
+      </styled.button>
+    </Upgrade__ButtonWarper>
+  </Upgrade__Content>
+</Upgrade__Container>
+`;

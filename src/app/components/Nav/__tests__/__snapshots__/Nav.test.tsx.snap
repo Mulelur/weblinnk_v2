@@ -38,7 +38,7 @@ exports[`<Nav /> should match the snapshot 1`] = `
   margin-right: 0.25rem;
 }
 
-<nav
+<div
   class="c0"
 >
   <a
@@ -63,5 +63,5 @@ exports[`<Nav /> should match the snapshot 1`] = `
       bell-icon.svg
     </svg>
   </a>
-</nav>
+</div>
 `;

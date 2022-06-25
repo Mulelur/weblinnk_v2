@@ -13,17 +13,23 @@ exports[`<Nav /> should match the snapshot 1`] = `
 }
 
 .c1 {
-  padding: 0.5rem 0;
-  margin: 0.2rem 1rem 0.2rem 0;
+  margin: 0;
+  padding: 0;
 }
 
-.c1:hover {
+.c3 {
+  padding: 0.5rem 0;
+  margin: 0.2rem 1rem 0.2rem 0;
+  list-style: none;
+}
+
+.c3:hover {
   opacity: 0.8;
-  background-color: rgba(235,121,17,0.2);
+  background-color: rgb(0 0 0 / 90%);
   border-radius: 0.25rem;
 }
 
-.c2 {
+.c4 {
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -40,56 +46,53 @@ exports[`<Nav /> should match the snapshot 1`] = `
   align-items: center;
 }
 
-.c2:hover {
-  opacity: 0.8;
+.c4:hover,
+.c4 .c2 {
+  color: #ffff;
 }
 
-.c2:active {
-  opacity: 0.4;
-}
-
-.c2 .icon {
+.c4 .icon {
   margin-right: 0.25rem;
 }
 
-<nav
+<div
   class="c0"
 >
   <ul
-    class=""
+    class="c1"
   >
     <li
-      class="c1"
+      class="c2 c3"
     >
       <a
-        class="c2"
-        href="https://cansahin.gitbook.io/react-boilerplate-cra-template/"
+        class="c4"
+        href="/dashboard/1"
         rel="noopener noreferrer"
         target="_blank"
         title="Documentation Page"
       >
         <svg>
-          documentation-icon.svg
+          dashboard-icon.svg
         </svg>
-        Documentation
+        Home
       </a>
     </li>
     <li
-      class="c1"
+      class="c2 c3"
     >
       <a
-        class="c2"
+        class="c4"
         href="https://github.com/react-boilerplate/react-boilerplate-cra-template"
         rel="noopener noreferrer"
         target="_blank"
         title="Github Page"
       >
         <svg>
-          github-icon.svg
+          settings-icon.svg
         </svg>
-        Github
+        Setting
       </a>
     </li>
   </ul>
-</nav>
+</div>
 `;

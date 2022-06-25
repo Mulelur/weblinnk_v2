@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
-import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
-import { ReactComponent as GithubIcon } from './assets/github-icon.svg';
+import { ReactComponent as Dashboard } from './assets/dashboard-icon.svg';
+import { ReactComponent as SettingsIcon } from './assets/settings-icon.svg';
 
 export function Nav() {
   return (
@@ -9,13 +9,13 @@ export function Nav() {
       <List>
         <ListItem>
           <Item
-            href="https://cansahin.gitbook.io/react-boilerplate-cra-template/"
+            href="/dashboard/1"
             target="_blank"
             title="Documentation Page"
             rel="noopener noreferrer"
           >
-            <DocumentationIcon />
-            Documentation
+            <Dashboard />
+            Home
           </Item>
         </ListItem>
         <ListItem>
@@ -25,8 +25,8 @@ export function Nav() {
             title="Github Page"
             rel="noopener noreferrer"
           >
-            <GithubIcon />
-            Github
+            <SettingsIcon />
+            Setting
           </Item>
         </ListItem>
       </List>
@@ -34,22 +34,26 @@ export function Nav() {
   );
 }
 
-const Wrapper = styled.nav`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: -1rem;
 `;
 
-const List = styled.ul``;
+const List = styled.ul`
+  margin: 0;
+  padding: 0;
+`;
 
 const ListItem = styled.li`
   padding: 0.5rem 0;
   margin: 0.2rem 1rem 0.2rem 0;
   &:hover {
     opacity: 0.8;
-    background-color: rgba(235, 121, 17, 0.2);
+    background-color: rgb(0 0 0 / 90%);
     border-radius: 0.25rem;
   }
+  list-style: none;
 `;
 
 const Item = styled.a`
@@ -62,12 +66,17 @@ const Item = styled.a`
   font-weight: 500;
   align-items: center;
 
-  &:hover {
-    opacity: 0.8;
-  }
+  // &:hover {
+  //   opacity: 0.8;
+  // }
 
-  &:active {
-    opacity: 0.4;
+  // &:active {
+  //   opacity: 0.4;
+  // }
+
+  &:hover,
+  ${ListItem} {
+    color: #ffff;
   }
 
   .icon {

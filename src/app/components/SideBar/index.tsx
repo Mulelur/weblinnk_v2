@@ -3,6 +3,7 @@ import styled from 'styled-components/macro';
 import { Logo } from './Logo';
 import { StyleConstants } from 'styles/StyleConstants';
 import { Nav } from './Nav';
+import { Upgrade } from '../Upgrade';
 
 export function SideBar() {
   return (
@@ -10,6 +11,7 @@ export function SideBar() {
       <Logo />
       <Divider />
       <Nav />
+      <Upgrade />
     </Wrapper>
   );
 }

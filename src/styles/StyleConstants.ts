@@ -1,6 +1,6 @@
 export enum StyleConstants {
   NAV_BAR_HEIGHT = '4rem',
-  BUTTON_BORDER_RADIUS = '',
+  BUTTON_BORDER_RADIUS = '4px',
   BUTTON_PADDING_H = '',
   BUTTON_SCALE = '',
   BUTTON_OUTLINE = '',
