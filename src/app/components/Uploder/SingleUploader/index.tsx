@@ -6,13 +6,16 @@ import styled from 'styled-components/macro';
 import { StyleConstants } from 'styles/StyleConstants';
 import { ReactComponent as ImageIcon } from './assets/image-icon.svg';
 
-export function SingleImageUploader() {
+type Props = {
+  type: 'image' | 'document';
+};
+
+export function SingleUploader(props: Props) {
+  const { type } = props;
   return (
     <Container>
       <Content>
-        <IconWrapper>
-          <ImageIcon />
-        </IconWrapper>
+        <IconWrapper>{type === 'image' ? <ImageIcon /> : 'NaN'}</IconWrapper>
         <P>Drag and drop file</P>
         <PrimaryButton
           style={{

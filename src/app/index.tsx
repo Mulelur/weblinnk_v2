@@ -18,6 +18,7 @@ import { useTranslation } from 'react-i18next';
 import { DashboardPage } from './pages/Dashboard/Loadable';
 import { SignInPage } from './pages/Auth/SignIn/Loadable';
 import { ProjectDashboardPage } from './pages/ProjectDashboard/Loadable';
+import { PricingPage } from './pages/Pricing';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -47,6 +48,11 @@ export function App() {
           exact
           path={process.env.PUBLIC_URL + '/signin'}
           component={SignInPage}
+        />
+        <Route
+          exact
+          path={process.env.PUBLIC_URL + '/pricing'}
+          component={PricingPage}
         />
         <Route component={NotFoundPage} />
       </Switch>

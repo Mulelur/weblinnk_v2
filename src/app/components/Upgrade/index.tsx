@@ -1,3 +1,4 @@
+import { P } from 'app/pages/NotFoundPage/P';
 import * as React from 'react';
 import styled from 'styled-components/macro';
 import { StolenButton } from '../common/buttons/stolen';
@@ -6,7 +7,7 @@ export function Upgrade() {
   return (
     <Container>
       <Content>
-        <Title>Upgrade Your Plan Now</Title>
+        <P>Upgrade Your Plan Now</P>
         <ButtonWarper>
           <StolenButton>Upgrade</StolenButton>
         </ButtonWarper>
@@ -27,11 +28,6 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-`;
-
-const Title = styled.h4`
-  font-size: 1rem;
-  font-weight: 500;
 `;
 
 const ButtonWarper = styled.div``;

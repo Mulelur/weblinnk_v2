@@ -15,7 +15,7 @@ type Props = {
   title: string;
 };
 
-export function HomeCard(props: Props) {
+export function AboutMeCard(props: Props) {
   const { title } = props;
   return (
     <Container>
@@ -39,11 +39,7 @@ export function HomeCard(props: Props) {
                   <Input type="text" placeholder="Enter something here!" />
                 </FormGroup>
                 <FormGroup>
-                  <Label>Title 3</Label>
-                  <Input type="text" placeholder="Enter something here!" />
-                </FormGroup>
-                <FormGroup>
-                  <Label>Title 4</Label>
+                  <Label>Text 1</Label>
                   <Input type="text" placeholder="Enter something here!" />
                 </FormGroup>
                 <Row>
