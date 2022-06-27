@@ -38,9 +38,20 @@ exports[`<Nav /> should match the snapshot 1`] = `
   margin-right: 0.25rem;
 }
 
-<nav
+<div
   class="c0"
 >
+  <a
+    class="c1"
+    href="/profile"
+    rel="noopener noreferrer"
+    target="_blank"
+    title="Documentation Page"
+  >
+    <svg>
+      account-icon.svg
+    </svg>
+  </a>
   <a
     class="c1"
     href="https://github.com/react-boilerplate/react-boilerplate-cra-template"
@@ -49,9 +60,8 @@ exports[`<Nav /> should match the snapshot 1`] = `
     title="Github Page"
   >
     <svg>
-      github-icon.svg
+      bell-icon.svg
     </svg>
-    Github
   </a>
-</nav>
+</div>
 `;

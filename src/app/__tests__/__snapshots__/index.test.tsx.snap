@@ -27,13 +27,29 @@ exports[`<App /> should render and match the snapshot 1`] = `
     />
     <Route
       component={[Function]}
-      exact={true}
-      path="/dashboard/1"
+      path="/project/:id?/:section?"
     />
+    <Route
+      path="/requirements"
+    >
+      <Redirect
+        to="/requirements/personal"
+      />
+    </Route>
     <Route
       component={[Function]}
       exact={true}
       path="/signin"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/pricing"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/profile"
     />
     <Route
       component={[Function]}

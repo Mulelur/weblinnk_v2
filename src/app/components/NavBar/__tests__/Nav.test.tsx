@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
-import { Nav } from '../Nav';
+import { NavBar as Nav } from '../NavBar';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('<Nav />', () => {

@@ -14,27 +14,32 @@ Array [
 }
 
 .c4 {
-  font-size: 1.25rem;
+  padding: 0.25rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(58,52,51,0.05);
+  background-color: rgba(255,255,255,1);
+  background-color: transparent;
   color: rgba(58,52,51,1);
-  font-weight: bold;
-  margin-right: 1rem;
+  border: none;
+}
+
+.c4:focus {
+  outline: none;
+  border: 1px solid rgba(215,113,88,1);
 }
 
 .c5 {
-  font-size: 0.875rem;
-  color: rgba(58,52,51,0.7);
-  font-weight: normal;
-}
-
-.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin-right: -1rem;
+  color: rgba(215,113,88,1);
 }
 
-.c7 {
+.c6 {
   color: rgba(215,113,88,1);
   cursor: pointer;
   -webkit-text-decoration: none;
@@ -52,15 +57,15 @@ Array [
   align-items: center;
 }
 
-.c7:hover {
+.c6:hover {
   opacity: 0.8;
 }
 
-.c7:active {
+.c6:active {
   opacity: 0.4;
 }
 
-.c7 .icon {
+.c6 .icon {
   margin-right: 0.25rem;
 }
 
@@ -80,9 +85,12 @@ Array [
   display: flex;
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background-color: rgba(255,255,255,1);
   z-index: 2;
+  width: 100%;
+  padding-left: 15rem;
 }
 
 .c0 .c1 {
@@ -117,40 +125,44 @@ Array [
       <div
         className="c3"
       >
-        <div
+        <input
           className="c4"
-        >
-          React Boilerplate
-        </div>
-        <div
-          className="c5"
-        >
-          Create React App Template
-        </div>
+          placeholder="search"
+        />
       </div>
-      <nav
-        className="c6"
+      <div
+        className="c5"
       >
         <a
-          className="c7"
+          className="c6"
+          href="/profile"
+          rel="noopener noreferrer"
+          target="_blank"
+          title="Documentation Page"
+        >
+          <svg>
+            account-icon.svg
+          </svg>
+        </a>
+        <a
+          className="c6"
           href="https://github.com/react-boilerplate/react-boilerplate-cra-template"
           rel="noopener noreferrer"
           target="_blank"
           title="Github Page"
         >
           <svg>
-            github-icon.svg
+            bell-icon.svg
           </svg>
-          Github
         </a>
-      </nav>
+      </div>
     </div>
   </header>,
   .c2 {
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1.5;
   color: rgba(58,52,51,0.7);
-  margin: 0.625rem 0 1.5rem 0;
+  margin: 0.225rem 0 1.5rem 0;
 }
 
 .c3 {
