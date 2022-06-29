@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
-import { Link } from 'app/components/Link';
 import { Helmet } from 'react-helmet-async';
 import { StyleConstants } from 'styles/StyleConstants';
 import { H1 } from 'app/components/common/typography/H1';
@@ -42,13 +41,13 @@ const Wrapper = styled.div`
   // min-height: 320px;
 `;
 
-const Title = styled.div`
-  // margin-top: -8vh;
-  font-weight: bold;
-  color: ${p => p.theme.text};
-  font-size: 3.375rem;
+// const Title = styled.div`
+//   // margin-top: -8vh;
+//   font-weight: bold;
+//   color: ${p => p.theme.text};
+//   font-size: 3.375rem;
 
-  span {
-    font-size: 3.125rem;
-  }
-`;
+//   span {
+//     font-size: 3.125rem;
+//   }
+// `;
