@@ -17,9 +17,9 @@ exports[`<DashboardPage /> should render and match the snapshot 1`] = `
   </Helmet>
   <NavBar />
   <PageWrapper>
-    <Dashboard__Container>
+    <DashboardPage__Container>
       <Projects />
-    </Dashboard__Container>
+    </DashboardPage__Container>
   </PageWrapper>
 </React.Fragment>
 `;
