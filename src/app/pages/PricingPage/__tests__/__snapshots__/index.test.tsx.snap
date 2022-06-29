@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<NotFoundPage /> should match snapshot 1`] = `
+exports[`<PricingPage /> should match snapshot 1`] = `
 Array [
   .c3 {
   display: -webkit-box;
@@ -14,27 +14,32 @@ Array [
 }
 
 .c4 {
-  font-size: 1.25rem;
+  padding: 0.25rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(58,52,51,0.05);
+  background-color: rgba(255,255,255,1);
+  background-color: transparent;
   color: rgba(58,52,51,1);
-  font-weight: bold;
-  margin-right: 1rem;
+  border: none;
+}
+
+.c4:focus {
+  outline: none;
+  border: 1px solid rgba(215,113,88,1);
 }
 
 .c5 {
-  font-size: 0.875rem;
-  color: rgba(58,52,51,0.7);
-  font-weight: normal;
-}
-
-.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin-right: -1rem;
+  color: rgba(215,113,88,1);
 }
 
-.c7 {
+.c6 {
   color: rgba(215,113,88,1);
   cursor: pointer;
   -webkit-text-decoration: none;
@@ -52,15 +57,15 @@ Array [
   align-items: center;
 }
 
-.c7:hover {
+.c6:hover {
   opacity: 0.8;
 }
 
-.c7:active {
+.c6:active {
   opacity: 0.4;
 }
 
-.c7 .icon {
+.c6 .icon {
   margin-right: 0.25rem;
 }
 
@@ -80,9 +85,12 @@ Array [
   display: flex;
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background-color: rgba(255,255,255,1);
   z-index: 2;
+  width: 100%;
+  padding-left: 15rem;
 }
 
 .c0 .c1 {
@@ -117,56 +125,116 @@ Array [
       <div
         className="c3"
       >
-        <div
+        <input
           className="c4"
-        >
-          React Boilerplate
-        </div>
-        <div
-          className="c5"
-        >
-          Create React App Template
-        </div>
+          placeholder="search"
+        />
       </div>
-      <nav
-        className="c6"
+      <div
+        className="c5"
       >
         <a
-          className="c7"
+          className="c6"
+          href="/profile"
+          rel="noopener noreferrer"
+          target="_blank"
+          title="Documentation Page"
+        >
+          <svg>
+            account-icon.svg
+          </svg>
+        </a>
+        <a
+          className="c6"
           href="https://github.com/react-boilerplate/react-boilerplate-cra-template"
           rel="noopener noreferrer"
           target="_blank"
           title="Github Page"
         >
           <svg>
-            github-icon.svg
+            bell-icon.svg
           </svg>
-          Github
         </a>
-      </nav>
+      </div>
     </div>
   </header>,
-  .c2 {
-  font-size: 1rem;
+  .c1 {
+  color: rgba(58,52,51,1);
+  font-size: 1.25rem;
+}
+
+.c2 {
+  font-size: 0.8rem;
   line-height: 1.5;
   color: rgba(58,52,51,0.7);
-  margin: 0.625rem 0 1.5rem 0;
+  margin: 0.225rem 0 1.5rem 0;
+}
+
+.c7 {
+  background-color: rgba(215,113,88,1);
+  border-radius: 0.65rem;
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 0.9rem;
 }
 
 .c3 {
-  color: rgba(215,113,88,1);
-  -webkit-text-decoration: none;
-  text-decoration: none;
+  width: 20rem;
+  height: 27rem;
+  background-color: rgba(255,255,255,1);
+  padding: 1.4rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(215,113,88,1);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  box-shadow: 0px 12px 24px rgba(44,39,56,0.04),0px 24px 48px rgba(44,39,56,0.08);
 }
 
-.c3:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  opacity: 0.8;
+.c4 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.6rem;
 }
 
-.c3:active {
-  opacity: 0.4;
+.c5 {
+  list-style: none;
+  padding: 0.5rem 2.5rem;
+  position: relative;
+}
+
+.c5::after {
+  color: #fff;
+  content: 'O';
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: rgba(215,113,88,1);
+  position: absolute;
+  top: 5px;
+  left: 0;
+}
+
+.c6 {
+  border: 1px dashed #efefef;
+  margin-bottom: auto;
 }
 
 .c0 {
@@ -186,18 +254,6 @@ Array [
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  min-height: 320px;
-}
-
-.c1 {
-  margin-top: -8vh;
-  font-weight: bold;
-  color: rgba(58,52,51,1);
-  font-size: 3.375rem;
-}
-
-.c1 span {
-  font-size: 3.125rem;
 }
 
 @supports (-webkit-backdrop-filter:blur(10px)) or (backdrop-filter:blur(10px)) {
@@ -207,30 +263,70 @@ Array [
 <div
     className="c0"
   >
-    <div
+    <h1
       className="c1"
     >
-      4
-      <span
-        aria-label="Crying Face"
-        role="img"
-      >
-        😢
-      </span>
-      4
-    </div>
+      Get The Right Plan For You
+    </h1>
     <p
       className="c2"
     >
-      Page not found.
+      All plans including 14-days free trial from us
     </p>
-    <a
-      className="c3"
-      href="/"
-      onClick={[Function]}
+    <div
+      className=""
     >
-      Return to Home Page
-    </a>
+      <div
+        className=""
+      >
+        <div
+          className="c3"
+        >
+          <h1
+            className="c1"
+          >
+            Guardian
+          </h1>
+          <p
+            className="c2"
+          >
+            What You'll Get
+          </p>
+          <ul
+            className="c4"
+          >
+            <li
+              className="c5"
+            >
+              lorem lepsum
+            </li>
+            <li
+              className="c5"
+            >
+              lorem lepsum ol rome
+            </li>
+          </ul>
+          <span
+            className="c6"
+          />
+          <h4
+            className=""
+          >
+            Free Forever
+            <span
+              className=""
+            >
+              
+            </span>
+          </h4>
+          <button
+            className="c7"
+          >
+            Choose
+          </button>
+        </div>
+      </div>
+    </div>
   </div>,
 ]
 `;

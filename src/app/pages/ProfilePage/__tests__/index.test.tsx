@@ -4,7 +4,6 @@ import { ThemeProvider } from 'styled-components';
 import { themes } from 'styles/theme/themes';
 import { HelmetProvider } from 'react-helmet-async';
 import renderer from 'react-test-renderer';
-import { Link } from 'app/components/Link';
 
 import { ProfilePage } from '..';
 
@@ -23,10 +22,5 @@ describe('<ProfilePage />', () => {
   it('should match snapshot', () => {
     const notFoundPage = renderPage();
     expect(notFoundPage.toJSON()).toMatchSnapshot();
-  });
-
-  it('should should contain Link', () => {
-    const notFoundPage = renderPage();
-    expect(notFoundPage.root.findByType(Link)).toBeDefined();
   });
 });
