@@ -8,6 +8,6 @@ export const Button = styled.button`
   border-radius: 50%;
   background-color: ${p => p.theme.primary};
   position: absolute;
-  right: -4rem;
-  bottom: -4rem;
+  right: 0rem;
+  bottom: 2rem;
 `;

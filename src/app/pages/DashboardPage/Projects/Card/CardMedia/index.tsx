@@ -18,7 +18,7 @@ export function CardMedia(props: Props) {
 }
 
 const Wrapper = styled.div`
-  width: 28rem;
+  width: 100%;
   border-radius: 0.25rem;
   display: flex;
   justify-content: center;

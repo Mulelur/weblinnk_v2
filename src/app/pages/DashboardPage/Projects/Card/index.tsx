@@ -32,4 +32,28 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+
+  @media only screen and (max-width: 600px) {
+    width: 21rem;
+  }
+
+  // Small devices (portrait tablets and large phones, 600px and up)
+  @media only screen and (min-width: 600px) {
+    width: 22rem;
+  }
+
+  // Medium devices (landscape tablets, 768px and up)
+  @media only screen and (min-width: 768px) {
+    width: 23rem;
+  }
+
+  // Large devices (laptops/desktops, 992px and up)
+  @media only screen and (min-width: 992px) {
+    width: 26rem;
+  }
+
+  // Extra large devices (large laptops and desktops, 1200px and up)
+  @media only screen and (min-width: 1200px) {
+    width: 28rem;
+  }
 `;

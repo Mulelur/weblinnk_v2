@@ -37,7 +37,7 @@ const Item = styled.a`
   cursor: pointer;
   text-decoration: none;
   display: flex;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   font-weight: 500;
   align-items: center;

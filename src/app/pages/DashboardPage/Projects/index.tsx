@@ -31,24 +31,28 @@ export function Projects() {
         <Project>
           <Card imageSrc="https://images.unsplash.com/photo-1636837955417-2d8a4e49368f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
         </Project>
-        <Button>
-          <AddIcon />
-        </Button>
       </List>
+      <Button>
+        <AddIcon />
+      </Button>
     </>
   );
 }
 
-const List = styled.ul`
-  padding: 0;
-  margin: 3.25rem 0 0 0;
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+const List = styled.div`
+  width: 100%;
+  margin: 2.15rem 0 6rem 0;
+  display: inline-grid;
   grid-gap: 1rem;
-  margin-bottom: 6rem;
+  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  padding-bottom: 4rem;
 `;
 
-const Project = styled.li`
-  width: 23rem;
+const Project = styled.div`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

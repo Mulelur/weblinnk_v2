@@ -7,10 +7,11 @@ import { P } from '../components/P';
 
 import im from './assets/preview.jpeg';
 import { Card } from './components/Card';
+import { PageContainer } from 'app/components/common/layout/PageContainer';
 
 export function Dashboard() {
   return (
-    <Container>
+    <PageContainer>
       <Content>
         <H1>Get started, Rotonda!</H1>
         <Card>
@@ -19,7 +20,6 @@ export function Dashboard() {
               <H4>Hello</H4>
               <P>Your new site</P>
             </Column>
-            {/* <StolenButton>View</StolenButton> */}
           </Column>
           <Column>
             <Preview
@@ -37,23 +37,13 @@ export function Dashboard() {
           <Column>overview</Column>
         </Card>
       </Content>
-    </Container>
+    </PageContainer>
   );
 }
 
-const Container = styled.div`
-  width: 884px;
-  margin: 1rem auto;
-  padding: 0 1.5rem;
-  box-sizing: content-box;
-`;
-
 const Content = styled.div`
-  // display: flex;
   width: 100%;
 `;
-
-const Text = styled.p``;
 
 const Column = styled.div``;
 

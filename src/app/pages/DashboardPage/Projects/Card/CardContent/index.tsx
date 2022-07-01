@@ -15,7 +15,7 @@ export function CardContent() {
 }
 
 const Wrapper = styled.div`
-  width: 28rem;
+  width: 100%;
   height: 3.2rem;
   color: ${p => p.theme.text}
   display: flex;

@@ -52,9 +52,9 @@ export function ProjectPage() {
       </Helmet>
       <Container>
         <Content>
+          <NavBar />
           <SideBar />
           <Main>
-            <NavBar />
             <MainView>{renderMain(urlString(section))}</MainView>
           </Main>
         </Content>
@@ -78,10 +78,15 @@ export const Content = styled.div`
   overflow: scroll;
   -webkit-box-flex: 1;
   flex-grow: 1;
+
+  @media only screen and (max-width: 768px) {
+    padding-left: 0;
+  }
 `;
 
 export const Main = styled.div`
   min-height: 100%;
+  max-width: 875px;
   display: flex;
   flex-direction: column;
   will-change: opacity;
@@ -89,4 +94,13 @@ export const Main = styled.div`
 
 const MainView = styled.div`
   padding: 2rem;
+
+  @media only screen and (max-width: 600px) {
+    padding: 0.3rem;
+  }
+
+  // Small devices (portrait tablets and large phones, 600px and up)
+  @media only screen and (min-width: 600px) {
+    padding: 1rem;
+  }
 `;

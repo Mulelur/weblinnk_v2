@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components/macro';
-// import { Masthead } from './Masthead';
-// import { Features } from './Features';
 import { Projects } from './Projects';
 import { PageWrapper } from 'app/components/PageWrapper';
 import { NavBar } from 'app/components/NavBar';
@@ -17,8 +15,8 @@ export function DashboardPage() {
           content="A React Boilerplate application homepage"
         />
       </Helmet>
-      <NavBar />
       <PageWrapper>
+        <NavBar />
         {/* <Masthead />
         <Features /> */}
         <Container>

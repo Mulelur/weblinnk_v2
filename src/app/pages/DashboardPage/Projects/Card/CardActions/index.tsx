@@ -19,7 +19,6 @@ export function CardActions() {
 }
 
 const Wrapper = styled.div`
-  width: 28rem;
   padding: 0 0.8rem;
   border-radius: 0.25rem;
   display: flex;

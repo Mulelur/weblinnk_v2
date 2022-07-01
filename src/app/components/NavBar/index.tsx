@@ -3,20 +3,19 @@ import styled from 'styled-components/macro';
 import { Search } from './Search';
 import { StyleConstants } from 'styles/StyleConstants';
 import { NavBar as Nav } from './NavBar';
-import { PageWrapper } from '../PageWrapper';
+import Menu from './Menu';
 
 export function NavBar() {
   return (
     <Wrapper>
-      <PageWrapper>
-        <Search />
-        <Nav />
-      </PageWrapper>
+      <Menu />
+      <Search />
+      <Nav />
     </Wrapper>
   );
 }
 
-const Wrapper = styled.header`
+const Wrapper = styled.div`
   box-shadow: 0 1px 0 0 ${p => p.theme.borderLight};
   height: ${StyleConstants.NAV_BAR_HEIGHT};
   display: flex;
@@ -28,7 +27,8 @@ const Wrapper = styled.header`
   z-index: 2;
 
   width: 100%;
-  padding-left: 15rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
 
   @supports (backdrop-filter: blur(10px)) {
     backdrop-filter: blur(10px);
@@ -38,10 +38,30 @@ const Wrapper = styled.header`
         'rgba$1,0.75)',
       )};
   }
-
-  ${PageWrapper} {
-    display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  @media only screen and (max-width: 600px) {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  }
+
+  // Small devices (portrait tablets and large phones, 600px and up)
+  @media only screen and (min-width: 600px) {
+  padding-left: 5rem;
+  padding-right: 5rem;
+  }
+
+  // Medium devices (landscape tablets, 768px and up)
+  @media only screen and (min-width: 768px) {
+  padding-left: 17rem;
+  padding-right: 7rem;
+  }
+
+  // Large devices (laptops/desktops, 992px and up)
+  @media only screen and (min-width: 992px) {
+  padding-left: 18rem;
+  padding-right: 8rem;
   }
 `;
