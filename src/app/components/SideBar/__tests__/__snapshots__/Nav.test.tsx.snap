@@ -2,9 +2,11 @@
 
 exports[`<Nav /> should match the snapshot 1`] = `
 .c1 {
-  font-size: 0.8rem;
-  line-height: 1.5;
-  margin: 0.125rem 0 1.1rem 0;
+  text-transform: uppercase;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  font-size: 0.75rem;
 }
 
 .c0 {
@@ -16,6 +18,7 @@ exports[`<Nav /> should match the snapshot 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   margin-right: -1rem;
+  padding-top: 1.8rem;
 }
 
 .c2 {
@@ -75,11 +78,11 @@ exports[`<Nav /> should match the snapshot 1`] = `
 <div
   class="c0"
 >
-  <p
+  <label
     class="c1"
   >
-    Site Settings
-  </p>
+    Site Setting
+  </label>
   <ul
     class="c2"
   >
@@ -141,11 +144,11 @@ exports[`<Nav /> should match the snapshot 1`] = `
       </a>
     </li>
   </ul>
-  <p
+  <label
     class="c1"
   >
     Page Settings
-  </p>
+  </label>
   <ul
     class="c2"
   >

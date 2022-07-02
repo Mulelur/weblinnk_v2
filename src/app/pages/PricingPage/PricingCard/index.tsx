@@ -24,13 +24,11 @@ export function PricingCard(props: Props) {
           <P>{price.subTitle}</P>
           <List>
             {price.benefits.length > 0 &&
-              price.benefits.map(item => {
+              price.benefits.map((item, idx) => {
                 return (
-                  <>
-                    <ListItem>
-                      <P>{item}</P>
-                    </ListItem>
-                  </>
+                  <ListItem key={idx}>
+                    <P>{item}</P>
+                  </ListItem>
                 );
               })}
           </List>

@@ -48,7 +48,7 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 0.25rem 1rem;
+  padding: 0.15rem 0.3rem;
   font-size: 0.875rem;
   font-weight: 500;
   -webkit-align-items: center;
@@ -66,14 +66,16 @@ Array [
 }
 
 .c6 .icon {
-  margin-right: 0.25rem;
+  margin-right: 0.2rem;
+}
+
+.c1 {
+  display: none;
 }
 
 .c2 {
-  width: 960px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  box-sizing: content-box;
+  color: rgba(215,113,88,1);
+  padding-right: 0.8rem;
 }
 
 .c0 {
@@ -90,14 +92,8 @@ Array [
   background-color: rgba(255,255,255,1);
   z-index: 2;
   width: 100%;
-  padding-left: 15rem;
-}
-
-.c0 .c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  padding-left: 10rem;
+  padding-right: 10rem;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -108,6 +104,12 @@ Array [
   justify-content: space-between;
 }
 
+@media only screen and (max-width:768px) {
+  .c1 {
+    display: block;
+  }
+}
+
 @supports (-webkit-backdrop-filter:blur(10px)) or (backdrop-filter:blur(10px)) {
   .c0 {
     -webkit-backdrop-filter: blur(10px);
@@ -116,48 +118,88 @@ Array [
   }
 }
 
-<header
+@media only screen and (max-width:600px) {
+  .c0 {
+    padding-left: 1rem;
+    padding-right: 3rem;
+  }
+}
+
+@media only screen and (min-width:600px) {
+  .c0 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media only screen and (min-width:768px) {
+  .c0 {
+    padding-left: 17rem;
+    padding-right: 7rem;
+  }
+}
+
+@media only screen and (min-width:992px) {
+  .c0 {
+    padding-left: 18rem;
+    padding-right: 8rem;
+  }
+}
+
+<div
     className="c0"
+    onClick={[Function]}
   >
     <div
-      className="c1 c2"
+      className="c1"
     >
       <div
-        className="c3"
+        className=""
       >
-        <input
-          className="c4"
-          placeholder="search"
-        />
-      </div>
-      <div
-        className="c5"
-      >
-        <a
-          className="c6"
-          href="/profile"
-          rel="noopener noreferrer"
-          target="_blank"
-          title="Documentation Page"
+        <div
+          className="c2"
         >
           <svg>
-            account-icon.svg
+            menu-icon.svg
           </svg>
-        </a>
-        <a
-          className="c6"
-          href="https://github.com/react-boilerplate/react-boilerplate-cra-template"
-          rel="noopener noreferrer"
-          target="_blank"
-          title="Github Page"
-        >
-          <svg>
-            bell-icon.svg
-          </svg>
-        </a>
+        </div>
       </div>
     </div>
-  </header>,
+    <div
+      className="c3"
+    >
+      <input
+        className="c4"
+        placeholder="search"
+      />
+    </div>
+    <div
+      className="c5"
+    >
+      <a
+        className="c6"
+        href="/profile"
+        rel="noopener noreferrer"
+        target="_blank"
+        title="Documentation Page"
+      >
+        <svg>
+          account-icon.svg
+        </svg>
+      </a>
+      <a
+        className="c6"
+        href="https://github.com/react-boilerplate/react-boilerplate-cra-template"
+        rel="noopener noreferrer"
+        target="_blank"
+        title="Github Page"
+      >
+        <svg>
+          bell-icon.svg
+        </svg>
+      </a>
+    </div>
+  </div>,
   .c1 {
   color: rgba(58,52,51,1);
   font-size: 1.25rem;
@@ -170,13 +212,20 @@ Array [
   margin: 0.225rem 0 1.5rem 0;
 }
 
-.c7 {
+.c8 {
   background-color: rgba(215,113,88,1);
   border-radius: 0.65rem;
   color: #fff;
   border: none;
   width: 100%;
   padding: 0.9rem;
+}
+
+.c4 {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(58,52,51,0.7);
+  margin: 0.12rem 0 1rem 0;
 }
 
 .c3 {
@@ -196,19 +245,19 @@ Array [
   box-shadow: 0px 12px 24px rgba(44,39,56,0.04),0px 24px 48px rgba(44,39,56,0.08);
 }
 
-.c4 {
+.c5 {
   margin: 0;
   padding: 0;
   margin-bottom: 0.6rem;
 }
 
-.c5 {
+.c6 {
   list-style: none;
   padding: 0.5rem 2.5rem;
   position: relative;
 }
 
-.c5::after {
+.c6::after {
   color: #fff;
   content: 'O';
   width: 2rem;
@@ -232,7 +281,7 @@ Array [
   left: 0;
 }
 
-.c6 {
+.c7 {
   border: 1px dashed #efefef;
   margin-bottom: auto;
 }
@@ -256,7 +305,27 @@ Array [
   flex-direction: column;
 }
 
+@media only screen and (max-width:768px) {
+
+}
+
 @supports (-webkit-backdrop-filter:blur(10px)) or (backdrop-filter:blur(10px)) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (min-width:600px) {
+
+}
+
+@media only screen and (min-width:768px) {
+
+}
+
+@media only screen and (min-width:992px) {
 
 }
 
@@ -288,26 +357,34 @@ Array [
             Guardian
           </h1>
           <p
-            className="c2"
+            className="c4"
           >
             What You'll Get
           </p>
           <ul
-            className="c4"
+            className="c5"
           >
             <li
-              className="c5"
+              className="c6"
             >
-              lorem lepsum
+              <p
+                className="c4"
+              >
+                lorem lepsum
+              </p>
             </li>
             <li
-              className="c5"
+              className="c6"
             >
-              lorem lepsum ol rome
+              <p
+                className="c4"
+              >
+                lorem lepsum ol rome
+              </p>
             </li>
           </ul>
           <span
-            className="c6"
+            className="c7"
           />
           <h4
             className=""
@@ -320,7 +397,7 @@ Array [
             </span>
           </h4>
           <button
-            className="c7"
+            className="c8"
           >
             Choose
           </button>
