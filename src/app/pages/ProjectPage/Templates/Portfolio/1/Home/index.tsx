@@ -10,6 +10,7 @@ import { Gap } from 'app/components/common/layout/Gap';
 import { Card } from 'app/pages/ProjectPage/Dashboard/components/Card';
 import { SingleUploader } from 'app/components/Uploader/SingleUploader';
 import { Form, FormGroup } from 'app/pages/Auth/SignInPage/SignInForm';
+import { PageContainer } from 'app/components/common/layout/PageContainer';
 
 type Props = {
   title: string;
@@ -18,7 +19,7 @@ type Props = {
 export function HomeCard(props: Props) {
   const { title } = props;
   return (
-    <Container>
+    <PageContainer>
       <Card>
         <Content>
           <Header>
@@ -65,7 +66,7 @@ export function HomeCard(props: Props) {
           </Row>
         </Content>
       </Card>
-    </Container>
+    </PageContainer>
   );
 }
 
@@ -87,13 +88,6 @@ const IconWrapper = styled.div`
 
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
     0px 1px 2px 0px rgba(0, 0, 0, 0.06);
-`;
-
-const Container = styled.div`
-  width: 884px;
-  margin: 1rem auto;
-  padding: 0 1.5rem;
-  box-sizing: content-box;
 `;
 
 const Content = styled.div`

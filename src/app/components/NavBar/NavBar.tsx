@@ -37,7 +37,7 @@ const Item = styled.a`
   cursor: pointer;
   text-decoration: none;
   display: flex;
-  padding: 0.25rem 1rem;
+  padding: 0.15rem 0.3rem;
   font-size: 0.875rem;
   font-weight: 500;
   align-items: center;
@@ -51,6 +51,6 @@ const Item = styled.a`
   }
 
   .icon {
-    margin-right: 0.25rem;
+    margin-right: 0.2rem;
   }
 `;

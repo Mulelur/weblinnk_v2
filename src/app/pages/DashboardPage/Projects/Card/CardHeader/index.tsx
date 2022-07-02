@@ -10,7 +10,7 @@ export function CardHeader() {
 }
 
 const Wrapper = styled.div`
-  width: 28rem;
+  width: 100%;
   height: 3.2rem;
   border-radius: 0.25rem;
   display: flex;

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
 import { Logo } from './Logo';
-import { StyleConstants } from 'styles/StyleConstants';
 import { Nav } from './Nav';
 import { Upgrade } from '../Upgrade';
 
@@ -17,8 +16,6 @@ export function SideBar() {
 }
 
 const Wrapper = styled.div`
-  // box-shadow: 0 1px 0 0 ${p => p.theme.borderLight};
-  // height: ${StyleConstants.NAV_BAR_HEIGHT};
   height: 100%;
   width: 15rem;
   border-right: 1px solid ${p => p.theme.borderLight};
@@ -51,6 +48,10 @@ const Wrapper = styled.div`
   background-color: rgba(86, 105, 147, 0.024);
 
   border-right: 1px solid rgba(58, 52, 51, 0.05);
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Divider = styled.div`
