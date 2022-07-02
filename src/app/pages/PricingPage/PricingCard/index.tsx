@@ -1,7 +1,7 @@
+import * as React from 'react';
 import { PrimaryButton } from 'app/components/common/buttons/primary';
 import { H1 } from 'app/components/common/typography/H1';
-import { P } from 'app/pages/NotFoundPage/P';
-import * as React from 'react';
+import { P } from 'app/components/common/typography/P/P';
 import styled from 'styled-components/macro';
 
 type Props = {
@@ -27,7 +27,9 @@ export function PricingCard(props: Props) {
               price.benefits.map(item => {
                 return (
                   <>
-                    <ListItem>{item}</ListItem>
+                    <ListItem>
+                      <P>{item}</P>
+                    </ListItem>
                   </>
                 );
               })}

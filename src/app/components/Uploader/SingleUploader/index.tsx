@@ -31,7 +31,6 @@ export function SingleUploader(props: Props) {
 
 const Container = styled.div`
   width: 100%;
-  // height: 100%;
 `;
 
 const Content = styled.div`
@@ -43,10 +42,8 @@ const Content = styled.div`
   height: 100%;
 
   border-radius: ${StyleConstants.BUTTON_BORDER_RADIUS};
-  border: 1px dashed #bbbb;
+  border: 1px dashed ${p => p.theme.borderLight};
   padding: 1rem;
 `;
-
-const Preview = styled.img``;
 
 const IconWrapper = styled.div``;
