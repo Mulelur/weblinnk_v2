@@ -48,7 +48,7 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 0.25rem 1rem;
+  padding: 0.15rem 0.3rem;
   font-size: 0.875rem;
   font-weight: 500;
   -webkit-align-items: center;
@@ -66,14 +66,16 @@ Array [
 }
 
 .c6 .icon {
-  margin-right: 0.25rem;
+  margin-right: 0.2rem;
+}
+
+.c1 {
+  display: none;
 }
 
 .c2 {
-  width: 960px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  box-sizing: content-box;
+  color: rgba(215,113,88,1);
+  padding-right: 0.8rem;
 }
 
 .c0 {
@@ -90,14 +92,8 @@ Array [
   background-color: rgba(255,255,255,1);
   z-index: 2;
   width: 100%;
-  padding-left: 15rem;
-}
-
-.c0 .c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  padding-left: 10rem;
+  padding-right: 10rem;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -108,6 +104,16 @@ Array [
   justify-content: space-between;
 }
 
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
+    display: block;
+  }
+}
+
 @supports (-webkit-backdrop-filter:blur(10px)) or (backdrop-filter:blur(10px)) {
   .c0 {
     -webkit-backdrop-filter: blur(10px);
@@ -116,48 +122,95 @@ Array [
   }
 }
 
-<header
+@media only screen and (max-width:600px) {
+  .c0 {
+    padding-left: 1rem;
+    padding-right: 3rem;
+  }
+}
+
+@media only screen and (min-width:600px) {
+  .c0 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media only screen and (min-width:768px) {
+  .c0 {
+    padding-left: 17rem;
+    padding-right: 7rem;
+  }
+}
+
+@media only screen and (min-width:992px) {
+  .c0 {
+    padding-left: 18rem;
+    padding-right: 8rem;
+  }
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (min-width:600px) {
+
+}
+
+<div
     className="c0"
   >
     <div
-      className="c1 c2"
+      className="c1"
     >
       <div
-        className="c3"
+        className=""
       >
-        <input
-          className="c4"
-          placeholder="search"
-        />
-      </div>
-      <div
-        className="c5"
-      >
-        <a
-          className="c6"
-          href="/profile"
-          rel="noopener noreferrer"
-          target="_blank"
-          title="Documentation Page"
+        <div
+          className="c2"
         >
           <svg>
-            account-icon.svg
+            menu-icon.svg
           </svg>
-        </a>
-        <a
-          className="c6"
-          href="https://github.com/react-boilerplate/react-boilerplate-cra-template"
-          rel="noopener noreferrer"
-          target="_blank"
-          title="Github Page"
-        >
-          <svg>
-            bell-icon.svg
-          </svg>
-        </a>
+        </div>
       </div>
     </div>
-  </header>,
+    <div
+      className="c3"
+    >
+      <input
+        className="c4"
+        placeholder="search"
+      />
+    </div>
+    <div
+      className="c5"
+    >
+      <a
+        className="c6"
+        href="/profile"
+        rel="noopener noreferrer"
+        target="_blank"
+        title="Documentation Page"
+      >
+        <svg>
+          account-icon.svg
+        </svg>
+      </a>
+      <a
+        className="c6"
+        href="https://github.com/react-boilerplate/react-boilerplate-cra-template"
+        rel="noopener noreferrer"
+        target="_blank"
+        title="Github Page"
+      >
+        <svg>
+          bell-icon.svg
+        </svg>
+      </a>
+    </div>
+  </div>,
   .c1 {
   color: rgba(58,52,51,1);
   font-size: 1.25rem;
@@ -294,9 +347,13 @@ Array [
   box-shadow: 0 0 0 var(--button-outline,0px) var(--button-outline-color,#5c89de4d), inset 0 -1px 1px 0 var(--button-inner-shadow,rgba(38 38 44 / 15%)), inset 0 var(--button-shine-y,1px) 0 0 var(--button-shine,rgba(255 255 255 / 25%)), 0 1px 2px 0 var(--button-shadow,rgba(38 38 44 / 25%));
 }
 
+.c3 {
+  margin: 1rem auto;
+  padding: 0 1.5rem;
+  box-sizing: content-box;
+}
+
 .c0 {
-  height: calc(100vh - 4rem);
-  margin-top: 8rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -347,20 +404,52 @@ Array [
   box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1),0px 1px 2px 0px rgba(0,0,0,0.06);
 }
 
-.c3 {
-  width: 884px;
-  height: 100%;
-  margin: 2rem auto;
-  padding: 2 1.5rem;
-  box-sizing: content-box;
-}
-
 .c5 {
   width: 100%;
 }
 
+@media only screen and (max-width:768px) {
+  .c9 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
 @supports (-webkit-backdrop-filter:blur(10px)) or (backdrop-filter:blur(10px)) {
 
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (min-width:600px) {
+
+}
+
+@media only screen and (min-width:768px) {
+
+}
+
+@media only screen and (min-width:992px) {
+
+}
+
+@media only screen and (max-width:600px) {
+  .c3 {
+    padding: 0 0.9rem;
+  }
+}
+
+@media only screen and (min-width:600px) {
+  .c3 {
+    padding: 0 1.1rem;
+  }
 }
 
 <div

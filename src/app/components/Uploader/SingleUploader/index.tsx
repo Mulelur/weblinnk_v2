@@ -47,6 +47,4 @@ const Content = styled.div`
   padding: 1rem;
 `;
 
-const Preview = styled.img``;
-
 const IconWrapper = styled.div``;
