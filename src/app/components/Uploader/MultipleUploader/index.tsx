@@ -81,6 +81,4 @@ const Content = styled.div`
   border: 1px dashed #bbbb;
 `;
 
-const Preview = styled.img``;
-
 const IconWrapper = styled.div``;

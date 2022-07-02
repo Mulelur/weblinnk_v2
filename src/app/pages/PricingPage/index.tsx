@@ -40,14 +40,3 @@ const Wrapper = styled.div`
   flex-direction: column;
   // min-height: 320px;
 `;
-
-// const Title = styled.div`
-//   // margin-top: -8vh;
-//   font-weight: bold;
-//   color: ${p => p.theme.text};
-//   font-size: 3.375rem;
-
-//   span {
-//     font-size: 3.125rem;
-//   }
-// `;

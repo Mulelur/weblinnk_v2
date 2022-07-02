@@ -15,8 +15,8 @@ exports[`<DashboardPage /> should render and match the snapshot 1`] = `
       name="description"
     />
   </Helmet>
-  <NavBar />
   <PageWrapper>
+    <NavBar />
     <DashboardPage__Container>
       <Projects />
     </DashboardPage__Container>

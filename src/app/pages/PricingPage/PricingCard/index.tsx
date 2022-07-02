@@ -1,7 +1,7 @@
+import * as React from 'react';
 import { PrimaryButton } from 'app/components/common/buttons/primary';
 import { H1 } from 'app/components/common/typography/H1';
 import { P } from 'app/pages/NotFoundPage/P';
-import * as React from 'react';
 import styled from 'styled-components/macro';
 
 type Props = {
