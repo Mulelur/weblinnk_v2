@@ -65,7 +65,7 @@ export function ProjectPage() {
 
 export const Container = styled.div`
   // display: flex;
-  background-color: rgb(252, 252, 252);
+  background-color: ${p => p.theme.background};
   color: rgb(18, 22, 30);
   height: 100%;
 `;

@@ -148,6 +148,7 @@ Array [
 
 <div
     className="c0"
+    onClick={[Function]}
   >
     <div
       className="c1"
@@ -211,13 +212,20 @@ Array [
   margin: 0.225rem 0 1.5rem 0;
 }
 
-.c7 {
+.c8 {
   background-color: rgba(215,113,88,1);
   border-radius: 0.65rem;
   color: #fff;
   border: none;
   width: 100%;
   padding: 0.9rem;
+}
+
+.c4 {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(58,52,51,0.7);
+  margin: 0.12rem 0 1rem 0;
 }
 
 .c3 {
@@ -237,19 +245,19 @@ Array [
   box-shadow: 0px 12px 24px rgba(44,39,56,0.04),0px 24px 48px rgba(44,39,56,0.08);
 }
 
-.c4 {
+.c5 {
   margin: 0;
   padding: 0;
   margin-bottom: 0.6rem;
 }
 
-.c5 {
+.c6 {
   list-style: none;
   padding: 0.5rem 2.5rem;
   position: relative;
 }
 
-.c5::after {
+.c6::after {
   color: #fff;
   content: 'O';
   width: 2rem;
@@ -273,7 +281,7 @@ Array [
   left: 0;
 }
 
-.c6 {
+.c7 {
   border: 1px dashed #efefef;
   margin-bottom: auto;
 }
@@ -349,26 +357,34 @@ Array [
             Guardian
           </h1>
           <p
-            className="c2"
+            className="c4"
           >
             What You'll Get
           </p>
           <ul
-            className="c4"
+            className="c5"
           >
             <li
-              className="c5"
+              className="c6"
             >
-              lorem lepsum
+              <p
+                className="c4"
+              >
+                lorem lepsum
+              </p>
             </li>
             <li
-              className="c5"
+              className="c6"
             >
-              lorem lepsum ol rome
+              <p
+                className="c4"
+              >
+                lorem lepsum ol rome
+              </p>
             </li>
           </ul>
           <span
-            className="c6"
+            className="c7"
           />
           <h4
             className=""
@@ -381,7 +397,7 @@ Array [
             </span>
           </h4>
           <button
-            className="c7"
+            className="c8"
           >
             Choose
           </button>

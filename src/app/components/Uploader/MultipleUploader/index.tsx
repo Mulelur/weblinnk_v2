@@ -60,7 +60,6 @@ MultipleUploader.defaultProps = {
 const Container = styled.div`
   width: 100%;
   max-width: 34rem;
-  // height: 100%;
   padding: 1rem 0;
   display: grid;
   grid-gap: 1rem;
@@ -78,7 +77,7 @@ const Content = styled.div`
   padding: 1rem;
 
   border-radius: ${StyleConstants.BUTTON_BORDER_RADIUS};
-  border: 1px dashed #bbbb;
+  border: 1px dashed ${p => p.theme.borderLight};
 `;
 
 const IconWrapper = styled.div``;

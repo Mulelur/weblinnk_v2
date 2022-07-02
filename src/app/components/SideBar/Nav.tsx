@@ -1,16 +1,16 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
-import { P } from '../common/typography/P/P';
 import { ReactComponent as Dashboard } from './assets/dashboard-icon.svg';
 import { ReactComponent as HomeIcon } from './assets/home-icon.svg';
 import { ReactComponent as SettingsIcon } from './assets/settings-icon.svg';
 import { ReactComponent as UserIcon } from './assets/user-icon.svg';
 import { ReactComponent as BrowserIcon } from './assets/browser-icon.svg';
+import { FormLabel } from '../FormLabel';
 
 export function Nav() {
   return (
     <Wrapper>
-      <P>Site Settings</P>
+      <FormLabel>Site Setting</FormLabel>
       <List>
         <ListItem>
           <Item
@@ -46,7 +46,7 @@ export function Nav() {
 
       {/* //////////// */}
 
-      <P>Page Settings</P>
+      <FormLabel>Page Settings</FormLabel>
       <List>
         <ListItem>
           <Item
@@ -87,14 +87,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: -1rem;
+  padding-top: 1.8rem;
 `;
 
 const List = styled.ul`
   margin: 0;
   padding: 0;
 `;
-
-// const IconWrapper = styled.div``;
 
 const ListTitle = styled.p`
   padding: 0;
