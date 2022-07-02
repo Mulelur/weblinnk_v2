@@ -43,8 +43,8 @@ const Wrapper = styled.div`
   }
 
   @media only screen and (max-width: 600px) {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1rem;
+  padding-right: 3rem;
   }
 
   // Small devices (portrait tablets and large phones, 600px and up)
