@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
 import { Helmet } from 'react-helmet-async';
-import { StyleConstants } from 'styles/StyleConstants';
 import { H1 } from 'app/components/common/typography/H1';
 import { P } from '../NotFoundPage/P';
 import { Card } from '../ProjectPage/Dashboard/components/Card';
@@ -15,6 +14,7 @@ import { Gap } from 'app/components/common/layout/Gap';
 import { NavBar } from 'app/components/NavBar';
 import { ReactComponent as SecureIcon } from './assets/secure-icon.svg';
 import { StolenButton } from 'app/components/common/buttons/stolen';
+import { PageContainer } from 'app/components/common/layout/PageContainer';
 
 export function ProfilePage() {
   return (
@@ -27,7 +27,7 @@ export function ProfilePage() {
       <Wrapper>
         <H1>Get The Right Plan For You</H1>
         <P>All plans including 14-days free trial from us</P>
-        <Container>
+        <PageContainer>
           <Card>
             <Content>
               <Header>
@@ -124,15 +124,13 @@ export function ProfilePage() {
           <Column>
             <StolenButton>Save</StolenButton>
           </Column>
-        </Container>
+        </PageContainer>
       </Wrapper>
     </>
   );
 }
 
 const Wrapper = styled.div`
-  height: calc(100vh - ${StyleConstants.NAV_BAR_HEIGHT});
-  margin-top: 8rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,14 +155,6 @@ const IconWrapper = styled.div`
 
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
     0px 1px 2px 0px rgba(0, 0, 0, 0.06);
-`;
-
-const Container = styled.div`
-  width: 884px;
-  height: 100%;
-  margin: 2rem auto;
-  padding: 2 1.5rem;
-  box-sizing: content-box;
 `;
 
 const Content = styled.div`

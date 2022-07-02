@@ -10,10 +10,11 @@ import { Row } from 'app/components/common/layout/Row';
 import { Form, FormGroup } from 'app/pages/Auth/SignInPage/SignInForm';
 import { Input } from 'app/components/common/feedback/Input';
 import { P } from 'app/components/common/typography/P/P';
+import { PageContainer } from 'app/components/common/layout/PageContainer';
 
 export function Settings() {
   return (
-    <Container>
+    <PageContainer>
       <Content>
         <H1>Site Settings</H1>
         <P>Set Your Site Settings here!</P>
@@ -45,16 +46,9 @@ export function Settings() {
           <Column>overview</Column>
         </Card>
       </Content>
-    </Container>
+    </PageContainer>
   );
 }
-
-const Container = styled.div`
-  width: 884px;
-  margin: 1rem auto;
-  padding: 0 1.5rem;
-  box-sizing: content-box;
-`;
 
 const Divider = styled.div`
   border: 1px solid ${p => p.theme.borderLight};
@@ -67,18 +61,4 @@ const Content = styled.div`
   width: 100%;
 `;
 
-const Text = styled.p``;
-
 const Column = styled.div``;
-
-const Preview = styled.a``;
-
-const Img = styled.img`
-  width: 100%;
-  height: 104px;
-  width: 168px;
-
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-`;
