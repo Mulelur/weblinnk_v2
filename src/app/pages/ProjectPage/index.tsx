@@ -8,6 +8,7 @@ import { HomeCard } from './Templates/Portfolio/1/Home';
 import { AboutMeCard } from './Templates/Portfolio/1/AboutMe';
 import { NavBar } from 'app/components/NavBar';
 import { Settings } from './Settings';
+import Swipeable from 'app/components/Swipeable';
 
 export function ProjectPage() {
   const { section } = useParams<never>();
@@ -54,6 +55,7 @@ export function ProjectPage() {
         <Content>
           <NavBar />
           <SideBar />
+          <Swipeable />
           <Main>
             <MainView>{renderMain(urlString(section))}</MainView>
           </Main>

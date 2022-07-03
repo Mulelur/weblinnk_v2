@@ -1,12 +1,22 @@
+import { useSwipeableSlice } from 'app/pages/ProjectPage/slice';
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components/macro';
 import { ReactComponent as MenuIcon } from './assets/menu-icon.svg';
 
 export default function Menu() {
+  const dispatch = useDispatch();
+
+  const { actions } = useSwipeableSlice();
+
   return (
     <Wrapper>
       <Container>
-        <Content>
+        <Content
+          onClick={() => {
+            dispatch(actions.setOpen(true));
+          }}
+        >
           <MenuIcon />
         </Content>
       </Container>

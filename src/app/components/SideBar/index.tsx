@@ -17,7 +17,6 @@ export function SideBar() {
 
 const Wrapper = styled.div`
   height: 100%;
-  width: 15rem;
   border-right: 1px solid ${p => p.theme.borderLight};
   padding: 0.8rem;
   background-color: ${p => p.theme.background};

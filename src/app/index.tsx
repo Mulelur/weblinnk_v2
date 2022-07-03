@@ -22,6 +22,7 @@ import { ProfilePage } from './pages/ProfilePage';
 
 export function App() {
   const { i18n } = useTranslation();
+
   return (
     <BrowserRouter>
       <Helmet
