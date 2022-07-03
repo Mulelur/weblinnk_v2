@@ -6,8 +6,13 @@ import { NavBar as Nav } from './NavBar';
 import Menu from './Menu';
 
 export function NavBar() {
+  const [isSelected, setIsSelected] = React.useState(false);
   return (
-    <Wrapper>
+    <Wrapper
+      onClick={() => {
+        setIsSelected(!isSelected);
+      }}
+    >
       <Menu />
       <Search />
       <Nav />

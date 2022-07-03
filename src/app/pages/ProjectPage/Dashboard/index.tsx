@@ -34,7 +34,9 @@ export function Dashboard() {
         </Card>
         <H1>Project Settings</H1>
         <Card>
-          <Column>overview</Column>
+          <Column>
+            <P>overview</P>
+          </Column>
         </Card>
       </Content>
     </PageContainer>

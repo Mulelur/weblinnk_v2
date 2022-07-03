@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { PrimaryButton } from 'app/components/common/buttons/primary';
 import { H1 } from 'app/components/common/typography/H1';
-import { P } from 'app/pages/NotFoundPage/P';
+import { P } from 'app/components/common/typography/P/P';
 import styled from 'styled-components/macro';
 
 type Props = {
@@ -24,11 +24,11 @@ export function PricingCard(props: Props) {
           <P>{price.subTitle}</P>
           <List>
             {price.benefits.length > 0 &&
-              price.benefits.map(item => {
+              price.benefits.map((item, idx) => {
                 return (
-                  <>
-                    <ListItem>{item}</ListItem>
-                  </>
+                  <ListItem key={idx}>
+                    <P>{item}</P>
+                  </ListItem>
                 );
               })}
           </List>
