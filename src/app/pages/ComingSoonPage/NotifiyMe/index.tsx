@@ -31,7 +31,7 @@ export function NotifyMe() {
               </Row>
             </FormGroup>
           </Form>
-          <FormLabel>We will notify you when we are ready to launch.</FormLabel>
+          <FormLabel>We will notify you when we are ready to launch</FormLabel>
         </Content>
       </Container>
     </Wrapper>
