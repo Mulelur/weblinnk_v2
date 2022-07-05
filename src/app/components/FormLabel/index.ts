@@ -2,6 +2,7 @@ import styled from 'styled-components/macro';
 
 export const FormLabel = styled.label`
   text-transform: uppercase;
+  text-align: center;
   font-weight: normal;
   margin: 0;
   padding: 0;

@@ -8,7 +8,7 @@ type InputProps = React.DetailedHTMLProps<
 
 interface Props extends InputProps {
   id: string;
-  label: React.ReactNode;
+  label: React.ReactNode | string;
   className?: string;
   isSelected?: boolean;
 }

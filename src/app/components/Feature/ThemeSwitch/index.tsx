@@ -26,7 +26,7 @@ export function ThemeSwitch() {
           id="checkbox"
           label={<SubIcon />}
           className="checkbox"
-          name="theme"
+          name="theme-color"
           onChange={handleThemeChange}
           onClick={() => {
             setV(theme === 'dark' ? 'dark' : 'light');
