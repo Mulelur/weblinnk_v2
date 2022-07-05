@@ -7,6 +7,7 @@ import { saveTheme } from 'styles/theme/utils';
 import { ThemeKeyType } from 'styles/theme/slice/types';
 import { selectThemeKey } from 'styles/theme/slice/selectors';
 import { Switch } from 'app/components/Switch';
+import { ReactComponent as SubIcon } from './assets/sun-icon.svg';
 
 export function ThemeSwitch() {
   const theme = useSelector(selectThemeKey);
@@ -23,7 +24,7 @@ export function ThemeSwitch() {
       <Themes>
         <Switch
           id="checkbox"
-          label=""
+          label={<SubIcon />}
           className="checkbox"
           name="theme"
           onChange={handleThemeChange}

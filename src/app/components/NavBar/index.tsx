@@ -1,21 +1,14 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
-import { Search } from './Search';
 import { StyleConstants } from 'styles/StyleConstants';
-import { NavBar as Nav } from './NavBar';
-import Menu from './Menu';
+import { ThemeSwitch } from '../Feature/ThemeSwitch';
+import { Logo } from '../SideBar/Logo';
 
 export function NavBar() {
-  const [isSelected, setIsSelected] = React.useState(false);
   return (
-    <Wrapper
-      onClick={() => {
-        setIsSelected(!isSelected);
-      }}
-    >
-      <Menu />
-      <Search />
-      <Nav />
+    <Wrapper>
+      <Logo />
+      <ThemeSwitch />
     </Wrapper>
   );
 }
@@ -53,18 +46,21 @@ const Wrapper = styled.div`
   }
 
   // Small devices (portrait tablets and large phones, 600px and up)
+
   @media only screen and (min-width: 600px) {
   padding-left: 5rem;
   padding-right: 5rem;
   }
 
   // Medium devices (landscape tablets, 768px and up)
+
   @media only screen and (min-width: 768px) {
   padding-left: 17rem;
   padding-right: 7rem;
   }
 
   // Large devices (laptops/desktops, 992px and up)
+
   @media only screen and (min-width: 992px) {
   padding-left: 18rem;
   padding-right: 8rem;

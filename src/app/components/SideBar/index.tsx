@@ -2,15 +2,12 @@ import * as React from 'react';
 import styled from 'styled-components/macro';
 import { Logo } from './Logo';
 import { Nav } from './Nav';
-import { Upgrade } from '../Upgrade';
-
 export function SideBar() {
   return (
     <Wrapper>
       <Logo />
       <Divider />
       <Nav />
-      <Upgrade />
     </Wrapper>
   );
 }

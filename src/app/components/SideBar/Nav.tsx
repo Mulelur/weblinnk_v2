@@ -3,7 +3,6 @@ import styled from 'styled-components/macro';
 import { ReactComponent as Dashboard } from './assets/dashboard-icon.svg';
 import { ReactComponent as HomeIcon } from './assets/home-icon.svg';
 import { ReactComponent as SettingsIcon } from './assets/settings-icon.svg';
-import { ReactComponent as UserIcon } from './assets/user-icon.svg';
 import { ReactComponent as BrowserIcon } from './assets/browser-icon.svg';
 import { FormLabel } from '../FormLabel';
 

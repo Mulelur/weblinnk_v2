@@ -8,7 +8,7 @@ type InputProps = React.DetailedHTMLProps<
 
 interface Props extends InputProps {
   id: string;
-  label: string;
+  label: React.ReactNode;
   className?: string;
   isSelected?: boolean;
 }
@@ -52,7 +52,7 @@ const Wrapper = styled.div`
     + label {
       margin: 0;
       display: inline-block;
-      padding-left: 1.375rem;
+      padding-left: 0.5rem;
       padding-top: 0.0625rem;
       position: relative;
       cursor: pointer;
@@ -73,7 +73,7 @@ const Wrapper = styled.div`
         width: 24px;
         height: 24px;
         border-radius: 50%;
-        top: -0.9rem;
+        top: 0.05rem;
         left: 0.125rem;
         background-color: ${p => p.theme.background};
 
