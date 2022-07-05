@@ -11,14 +11,15 @@ export function Logo() {
         </IconWrapper>
         Weblinnk
       </Title>
-      <Description>Create cool webapps</Description>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
   display: flex;
+  height: 4rem;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 `;
 
@@ -30,12 +31,6 @@ const Title = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const Description = styled.div`
-  font-size: 0.875rem;
-  color: ${p => p.theme.textSecondary};
-  font-weight: normal;
 `;
 
 const IconWrapper = styled.div`

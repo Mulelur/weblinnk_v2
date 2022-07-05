@@ -31,6 +31,7 @@ const Wrapper = styled.div`
   background-color: rgba(86, 105, 147, 0.024);
   border-right: 1px solid ${p => p.theme.borderLight};
   padding: 0.8rem;
+  padding-top: 0;
   background-color: ${p => p.theme.background};
   z-index: 2;
 
@@ -49,8 +50,7 @@ const Wrapper = styled.div`
 `;
 
 const Divider = styled.div`
-  height: 0.1rem;
+  height: 0.05rem;
   width: 100%;
   background-color: ${p => p.theme.borderLight};
-  margin: 1.3rem 0 0 0;
 `;

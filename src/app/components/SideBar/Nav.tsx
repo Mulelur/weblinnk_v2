@@ -24,16 +24,6 @@ export function Nav() {
         </ListItem>
         <ListItem>
           <Item
-            href={process.env.PUBLIC_URL + '/profile'}
-            title="Documentation Page"
-            rel="noopener noreferrer"
-          >
-            <UserIcon />
-            <ListTitle>Profile</ListTitle>
-          </Item>
-        </ListItem>
-        <ListItem>
-          <Item
             href={process.env.PUBLIC_URL + '/project/1/settings'}
             title="Github Page"
             rel="noopener noreferrer"
