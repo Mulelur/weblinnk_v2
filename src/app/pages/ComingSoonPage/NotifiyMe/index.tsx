@@ -22,12 +22,12 @@ export function NotifyMe() {
           </Column>
           <H1>Coming Soon!</H1>
           <P>We are working on this page.</P>
-          <Form>
+          <Form name="contact" method="POST" data-netlify="true">
             <FormGroup>
               <Row>
                 <Input type="text" placeholder="Enter Email" />
                 <Gap />
-                <PrimaryButton>Notify Me</PrimaryButton>
+                <PrimaryButton type="submit">Notify Me</PrimaryButton>
               </Row>
             </FormGroup>
           </Form>
