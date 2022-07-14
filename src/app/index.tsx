@@ -19,6 +19,7 @@ import { SignInPage } from './pages/Auth/SignInPage/Loadable';
 import { ProjectPage } from './pages/ProjectPage/Loadable';
 import { PricingPage } from './pages/PricingPage';
 import { ProfilePage } from './pages/ProfilePage';
+import { CreateSitePage } from './pages/CreateSitePage/Loadable';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -60,6 +61,11 @@ export function App() {
           exact
           path={process.env.PUBLIC_URL + '/profile'}
           component={ProfilePage}
+        />
+        <Route
+          exact
+          path={process.env.PUBLIC_URL + '/create-site'}
+          component={CreateSitePage}
         />
         <Route component={NotFoundPage} />
       </Switch>

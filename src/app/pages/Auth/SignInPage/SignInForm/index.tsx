@@ -59,7 +59,7 @@ export const Content = styled.div`
 
 export const Form = styled.form`
   width: 100%;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 `;
 
 export const FormGroup = styled.div`
