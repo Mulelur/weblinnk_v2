@@ -9,6 +9,7 @@ import { AboutMeCard } from './Templates/Portfolio/1/AboutMe';
 import { NavBar } from 'app/components/NavBar';
 import { Settings } from './Settings';
 import Swipeable from 'app/components/Swipeable';
+import { ContactCard } from './Templates/Portfolio/Contact';
 
 export function ProjectPage() {
   const { section } = useParams<never>();
@@ -34,6 +35,9 @@ export function ProjectPage() {
         break;
       case '/settings':
         el = <Settings />;
+        break;
+      case '/contact-settings':
+        el = <ContactCard />;
         break;
       default:
         el = <>default</>;
@@ -88,7 +92,6 @@ export const Content = styled.div`
 
 export const Main = styled.div`
   min-height: 100%;
-  max-width: 875px;
   display: flex;
   flex-direction: column;
   will-change: opacity;

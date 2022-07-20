@@ -5,16 +5,26 @@ import { CardContent } from './CardContent';
 import { CardHeader } from './CardHeader';
 import { CardMedia } from './CardMedia';
 
+type TemplateEntity = {};
+
 type Props = {
-  imageSrc: string;
+  site: {
+    siteName: string;
+    siteId: string;
+    siteUrl: string;
+    category: string;
+    status: string;
+    previewUrl: string;
+    template: TemplateEntity;
+  };
 };
 
 export function Card(props: Props) {
-  const { imageSrc } = props;
+  const { site } = props;
   return (
     <Wrapper>
-      <CardHeader />
-      <CardMedia src={imageSrc} />
+      <CardHeader siteName={site.siteName} />
+      <CardMedia category={site.category} src={site.previewUrl} />
       <CardContent />
       <CardActions />
     </Wrapper>

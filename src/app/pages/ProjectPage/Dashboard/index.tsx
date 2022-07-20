@@ -8,8 +8,37 @@ import { P } from '../components/P';
 import im from './assets/preview.jpeg';
 import { Card } from './components/Card';
 import { PageContainer } from 'app/components/common/layout/PageContainer';
+import { gql, useQuery } from '@apollo/client';
+import { useParams } from 'react-router-dom';
 
+const SITE = gql`
+  query ($id: ID!) {
+    site(id: $id) {
+      data {
+        attributes {
+          siteId
+          status
+          siteUrl
+          siteName
+          previewUrl
+          category
+        }
+      }
+    }
+  }
+`;
 export function Dashboard() {
+  const { id } = useParams<never>();
+  const { loading, error, data } = useQuery(SITE, {
+    variables: {
+      id,
+    },
+  });
+
+  if (loading) return <>'Loading...'</>;
+  if (error) return <>`Error! ${error.message}`</>;
+
+  console.log(data);
   return (
     <PageContainer>
       <Content>
@@ -17,7 +46,7 @@ export function Dashboard() {
         <Card>
           <Column>
             <Column>
-              <H4>Hello</H4>
+              <H4>{data.site.data.attributes.siteName}</H4>
               <P>Your new site</P>
             </Column>
           </Column>

@@ -5,7 +5,7 @@ import { ReactComponent as LogoIcon } from './assets/logo-icon.svg';
 export function Logo() {
   return (
     <Wrapper>
-      <Title>
+      <Title href="/">
         <IconWrapper>
           <LogoIcon />
         </IconWrapper>
@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled.div`
+const Title = styled.a`
   font-size: 1.25rem;
   color: ${p => p.theme.text};
   font-weight: bold;
@@ -31,6 +31,7 @@ const Title = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 `;
 
 const IconWrapper = styled.div`

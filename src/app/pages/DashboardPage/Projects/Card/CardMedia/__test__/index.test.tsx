@@ -12,7 +12,7 @@ const renderCard = (store: Store) =>
     <Provider store={store}>
       <ThemeProvider>
         <HelmetProvider>
-          <CardMedia />
+          <CardMedia category="Portfolio" />
         </HelmetProvider>
       </ThemeProvider>
     </Provider>,

@@ -5,7 +5,7 @@ import { Column } from 'app/components/common/layout/Column';
 import { Row } from 'app/components/common/layout/Row';
 import { Label } from 'app/components/common/feedback/Label';
 import { Input } from 'app/components/common/feedback/Input';
-import { ReactComponent as AboutMeIcon } from './assets/aboutMe-icon.svg';
+// import { ReactComponent as AboutMeIcon } from './assets/aboutMe-icon.svg';
 import { Card } from 'app/pages/ProjectPage/Dashboard/components/Card';
 import { Form, FormGroup } from 'app/pages/Auth/SignInPage/SignInForm';
 import { PageContainer } from 'app/components/common/layout/PageContainer';
@@ -13,11 +13,7 @@ import { PageContainer } from 'app/components/common/layout/PageContainer';
 import { gql, useMutation, useQuery } from '@apollo/client';
 import { PrimaryButton } from 'app/components/common/buttons/primary';
 
-type Props = {
-  title: string;
-};
-
-const UPDATE_ABOUT_PAGE = gql`
+const UPDATE_CONTACT_PAGE = gql`
   mutation ($data: TemplateInput!) {
     updateTemplate(id: 8, data: $data) {
       data {
@@ -59,44 +55,50 @@ const GET_TEMPLATE_ABOUT_PAGE = gql`
   }
 `;
 
-export function AboutMeCard(props: Props) {
-  const { title } = props;
-
+export function ContactCard() {
   let input: {
     title1: HTMLInputElement | null;
     title2: HTMLInputElement | null;
     text1: HTMLInputElement | null;
+    email: HTMLInputElement | null;
+    phone: HTMLInputElement | null;
   } = {
     title1: null,
     title2: null,
     text1: null,
+    email: null,
+    phone: null,
   };
 
-  const updateAboutPageHandler = () => {
-    updateAboutPage({
+  const updateContactPageHandler = () => {
+    updateContactPage({
       variables: {
         data: {
           pages: {
-            aboutPage: {
+            contactPage: {
               title1: input.title1?.value,
               title2: input.title2?.value,
               text1: input.text1?.value,
-            },
-            contactPage: {
-              title1:
-                aboutPage.template.data.attributes.pages.contactPage.title1,
-              title2:
-                aboutPage.template.data.attributes.pages.contactPage.title2,
-              text1: aboutPage.template.data.attributes.pages.contactPage.text1,
-              email: aboutPage.template.data.attributes.pages.contactPage.email,
-              phone: aboutPage.template.data.attributes.pages.contactPage.phone,
+              email: input.email?.value,
+              phone: input.phone?.value,
             },
             homePage: {
-              title1: aboutPage.template.data.attributes.pages.homePage.title1,
-              title2: aboutPage.template.data.attributes.pages.homePage.title2,
-              title3: aboutPage.template.data.attributes.pages.homePage.title3,
-              link1: aboutPage.template.data.attributes.pages.homePage.link1,
-              link2: aboutPage.template.data.attributes.pages.homePage.link2,
+              title1:
+                contactPage.template.data.attributes.pages.homePage.title1,
+              title2:
+                contactPage.template.data.attributes.pages.homePage.title2,
+              title3:
+                contactPage.template.data.attributes.pages.homePage.title3,
+              link1: contactPage.template.data.attributes.pages.homePage.link1,
+              link2: contactPage.template.data.attributes.pages.homePage.link2,
+            },
+            aboutPage: {
+              // ...homePage.template.data.attributes.pages.aboutPage,
+              title1:
+                contactPage.template.data.attributes.pages.aboutPage.title1,
+              title2:
+                contactPage.template.data.attributes.pages.aboutPage.title2,
+              text1: contactPage.template.data.attributes.pages.aboutPage.text1,
             },
           },
         },
@@ -104,13 +106,13 @@ export function AboutMeCard(props: Props) {
     });
   };
 
-  const [updateAboutPage, { data, loading, error }] =
-    useMutation(UPDATE_ABOUT_PAGE);
+  const [updateContactPage, { data, loading, error }] =
+    useMutation(UPDATE_CONTACT_PAGE);
 
   const {
     loading: L,
     error: E,
-    data: aboutPage,
+    data: contactPage,
   } = useQuery(GET_TEMPLATE_ABOUT_PAGE);
 
   if (L) return <>'Loading...'</>;
@@ -119,17 +121,21 @@ export function AboutMeCard(props: Props) {
   if (loading) return <>'Submitting...'</>;
   if (error) return <>`Submission error! ${error.message}`</>;
 
-  localStorage.setItem('aboutPage', JSON.stringify(data));
+  console.log(data);
+
+  console.log(contactPage);
 
   const handleSubmit = async e => {
     e.preventDefault();
 
-    updateAboutPageHandler();
+    updateContactPageHandler();
 
     input = {
       title1: null,
       title2: null,
       text1: null,
+      email: null,
+      phone: null,
     };
   };
 
@@ -138,10 +144,8 @@ export function AboutMeCard(props: Props) {
       <Card>
         <Content>
           <Header>
-            <IconWrapper>
-              <AboutMeIcon />
-            </IconWrapper>
-            <H4>{title}</H4>
+            <IconWrapper></IconWrapper>
+            <H4>Contact page</H4>
           </Header>
           <Row>
             <Column>
@@ -154,10 +158,12 @@ export function AboutMeCard(props: Props) {
                     }}
                     type="text"
                     placeholder={
-                      aboutPage.template.data.attributes.pages.aboutPage.title1
+                      contactPage.template.data.attributes.pages.contactPage
+                        .title1
                     }
                     defaultValue={
-                      aboutPage.template.data.attributes.pages.aboutPage.title1
+                      contactPage.template.data.attributes.pages.contactPage
+                        .title1
                     }
                   />
                 </FormGroup>
@@ -169,10 +175,12 @@ export function AboutMeCard(props: Props) {
                     }}
                     type="text"
                     placeholder={
-                      aboutPage.template.data.attributes.pages.aboutPage.title2
+                      contactPage.template.data.attributes.pages.contactPage
+                        .title2
                     }
                     defaultValue={
-                      aboutPage.template.data.attributes.pages.aboutPage.title2
+                      contactPage.template.data.attributes.pages.contactPage
+                        .title2
                     }
                   />
                 </FormGroup>
@@ -184,10 +192,46 @@ export function AboutMeCard(props: Props) {
                     }}
                     type="text"
                     placeholder={
-                      aboutPage.template.data.attributes.pages.aboutPage.text1
+                      contactPage.template.data.attributes.pages.contactPage
+                        .text1
                     }
                     defaultValue={
-                      aboutPage.template.data.attributes.pages.aboutPage.text1
+                      contactPage.template.data.attributes.pages.contactPage
+                        .text1
+                    }
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label>Email</Label>
+                  <Input
+                    ref={node => {
+                      input.email = node;
+                    }}
+                    type="text"
+                    placeholder={
+                      contactPage.template.data.attributes.pages.contactPage
+                        .text1
+                    }
+                    defaultValue={
+                      contactPage.template.data.attributes.pages.contactPage
+                        .text1
+                    }
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label>Phone</Label>
+                  <Input
+                    ref={node => {
+                      input.phone = node;
+                    }}
+                    type="text"
+                    placeholder={
+                      contactPage.template.data.attributes.pages.contactPage
+                        .text1
+                    }
+                    defaultValue={
+                      contactPage.template.data.attributes.pages.contactPage
+                        .text1
                     }
                   />
                 </FormGroup>
