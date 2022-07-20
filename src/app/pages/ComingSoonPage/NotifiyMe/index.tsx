@@ -13,10 +13,22 @@ import styled from 'styled-components/macro';
 import { StyleConstants } from 'styles/StyleConstants';
 import { P } from '../components/P';
 import { ReactComponent as Illus } from './assets/illus-il.svg';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export function NotifyMe() {
   const [isLoading, setIsLoading] = React.useState(false);
   const [email, setEmail] = React.useState('');
+
+  const [verified, setVerified] = React.useState(false);
+
+  function onChange(value) {
+    console.log('Captcha value:', value);
+
+    if (value) {
+      console.log('Captcha value:', value);
+    }
+    setVerified(true);
+  }
 
   const onChangeUsername = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(evt.currentTarget.value);
@@ -49,6 +61,9 @@ export function NotifyMe() {
       setIsLoading(false);
     }
   };
+
+  console.log(process.env.REACT_APP_RECAPTCHA_SITE_KEY);
+
   return (
     <Wrapper>
       <Container>
@@ -72,8 +87,18 @@ export function NotifyMe() {
                   {isLoading && <LoadingIndicator small />}
                 </InputWrapper>
                 <Gap />
-                <PrimaryButton type="submit">Notify Me</PrimaryButton>
+                <PrimaryButton disabled={!verified} type="submit">
+                  Notify Me
+                </PrimaryButton>
               </Row>
+              <Gap />
+              <ReCAPTCHA
+                sitekey={
+                  process.env.REACT_APP_RECAPTCHA_SITE_KEY ||
+                  '6LdcQAUhAAAAAMdbFafVYn2nNpGy3UakoYE_WOrT'
+                }
+                onChange={onChange}
+              />
             </FormGroup>
           </Form>
           <FormLabel>We will notify you when we are ready to launch</FormLabel>
