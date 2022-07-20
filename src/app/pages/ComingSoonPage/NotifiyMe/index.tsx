@@ -93,10 +93,8 @@ export function NotifyMe() {
               </Row>
               <Gap />
               <ReCAPTCHA
-                sitekey={
-                  process.env.REACT_APP_RECAPTCHA_SITE_KEY ||
-                  '6LdcQAUhAAAAAMdbFafVYn2nNpGy3UakoYE_WOrT'
-                }
+                sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+                size="invisible"
                 onChange={onChange}
               />
             </FormGroup>
@@ -129,7 +127,7 @@ const Content = styled.div`
 `;
 
 const Gap = styled.div`
-  padding: 0.5rem;
+  padding: 0.1rem;
 `;
 
 const InputWrapper = styled.div`
