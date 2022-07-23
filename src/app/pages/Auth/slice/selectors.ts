@@ -4,11 +4,11 @@ import { RootState } from 'types';
 import { initialState } from '.';
 
 // First select the relevant part from the state
-const selectDomain = (state: RootState) => state.githubRepoForm || initialState;
+const selectUser = (state: RootState) => state.user || initialState;
 
 export const selectUsername = createSelector(
-  [selectDomain],
-  githubRepoFormState => githubRepoFormState.username,
+  [selectUser],
+  user => user.username,
 );
 
 // export const selectLoading = createSelector(

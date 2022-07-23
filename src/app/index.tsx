@@ -2,13 +2,13 @@
  *
  * App
  *
- * This component is the skeleton around the actual pages, and should only
+ * This element is the skeleton around the actual pages, and should only
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 
 import {
   ApolloClient,
@@ -28,18 +28,19 @@ import { ProjectPage } from './pages/ProjectPage/Loadable';
 import { PricingPage } from './pages/PricingPage';
 import { ProfilePage } from './pages/ProfilePage';
 import { CreateSitePage } from './pages/CreateSitePage/Loadable';
+import PrivateRoutes from 'routes/privateRoutes';
+import { SignUpPage } from './pages/Auth/SignUpPage/Loadable';
 
 export function App() {
   const { i18n } = useTranslation();
 
   const httpLink = createHttpLink({
-    uri: 'http://localhost:1337/graphql',
+    uri: 'https://weblinnk-api.herokuapp.com/graphql',
   });
 
   const authLink = setContext((_, { headers }) => {
     // get the authentication token from local storage if it exists
-    const token =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjU3OTE2MjQ4LCJleHAiOjE2NjA1MDgyNDh9.mZbfpqPjT82tM8DnPoXPijPY906v6IbtyAFCqxc03nk'; //localStorage.getItem('token');
+    const token = localStorage.getItem('jwt');
     // return the headers to the context so httpLink can read them
     return {
       headers: {
@@ -64,41 +65,46 @@ export function App() {
         <meta name="description" content="A Weblinnk application" />
       </Helmet>
       <ApolloProvider client={client}>
-        <Switch>
+        {/* Public Routes  */}
+        <Routes>
           <Route
-            exact
-            path={process.env.PUBLIC_URL + '/'}
-            component={DashboardPage}
-          />
-          <Route
-            path={process.env.PUBLIC_URL + '/project/:id?/:section?'}
-            component={ProjectPage}
-          />
-          <Route path="/requirements">
-            <Redirect to="/requirements/personal" />
-          </Route>
-          <Route
-            exact
             path={process.env.PUBLIC_URL + '/signin'}
-            component={SignInPage}
+            element={<SignInPage />}
           />
+
           <Route
-            exact
+            path={process.env.PUBLIC_URL + '/signup'}
+            element={<SignUpPage />}
+          />
+
+          <Route
             path={process.env.PUBLIC_URL + '/pricing'}
-            component={PricingPage}
+            element={<PricingPage />}
           />
-          <Route
-            exact
-            path={process.env.PUBLIC_URL + '/profile'}
-            component={ProfilePage}
-          />
-          <Route
-            exact
-            path={process.env.PUBLIC_URL + '/create-site'}
-            component={CreateSitePage}
-          />
-          <Route component={NotFoundPage} />
-        </Switch>
+
+          <Route element={<NotFoundPage />} />
+
+          {/* Private Routes */}
+          <Route element={<PrivateRoutes />}>
+            <Route
+              path={process.env.PUBLIC_URL + '/profile'}
+              element={<ProfilePage />}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + '/create-site'}
+              element={<CreateSitePage />}
+            />
+
+            <Route
+              path={process.env.PUBLIC_URL + '/'}
+              element={<DashboardPage />}
+            />
+            <Route
+              path={process.env.PUBLIC_URL + '/project/:id?/:section?'}
+              element={<ProjectPage />}
+            />
+          </Route>
+        </Routes>
         <GlobalStyle />
       </ApolloProvider>
     </BrowserRouter>

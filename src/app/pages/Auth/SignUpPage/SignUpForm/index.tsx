@@ -11,41 +11,44 @@ import styled from 'styled-components/macro';
 import { gql, useMutation } from '@apollo/client';
 
 const CREATE_USER = gql`
-  mutation ($input: UsersPermissionsLoginInput!) {
-    login(input: $input) {
+  mutation ($input: UsersPermissionsRegisterInput!) {
+    register(input: $input) {
       jwt
     }
   }
 `;
 
 type RequestData = {
+  username: HTMLInputElement | null;
   password: HTMLInputElement | null;
-  identifier: HTMLInputElement | null;
+  email: HTMLInputElement | null;
 };
 
-export function SignInForm() {
+export function SignUpForm() {
   const [createTemplate, { data: D, loading: L, error: E }] =
     useMutation(CREATE_USER);
 
   // save jwt to local storage
   if (D) {
-    localStorage.setItem('jwt', D.login.jwt);
+    localStorage.setItem('jwt', D.register.jwt);
   }
 
   if (L) return <>'Loading...'</>;
   if (E) return <>`Error! ${E.message}`</>;
 
   let reqData: RequestData = {
+    username: null,
     password: null,
-    identifier: null,
+    email: null,
   };
 
   const createTemplateHandler = () => {
     createTemplate({
       variables: {
         input: {
+          username: reqData.username?.value,
           password: reqData.password?.value,
-          identifier: reqData.identifier?.value,
+          email: reqData.email?.value,
         },
       },
     });
@@ -57,8 +60,9 @@ export function SignInForm() {
     createTemplateHandler();
 
     reqData = {
+      username: null,
       password: null,
-      identifier: null,
+      email: null,
     };
   };
 
@@ -66,14 +70,24 @@ export function SignInForm() {
     <>
       <Wrapper>
         <Content>
-          <H1>Sign In</H1>
+          <H1>Sign Up</H1>
           <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</P>
           <Form onSubmit={handleSubmit}>
+            <FormGroup>
+              <Label>Username</Label>
+              <Input
+                ref={node => {
+                  reqData.username = node;
+                }}
+                type="text"
+                placeholder="Enter username"
+              />
+            </FormGroup>
             <FormGroup>
               <Label>Email</Label>
               <Input
                 ref={node => {
-                  reqData.identifier = node;
+                  reqData.email = node;
                 }}
                 type="email"
                 placeholder="Enter email"
@@ -97,8 +111,8 @@ export function SignInForm() {
             </FormGroup>
           </Form>
           <P>
-            Don't have an account?{' '}
-            <Link to={process.env.PUBLIC_URL + '/signup'}>Sign Up</Link>
+            Don't have an account?
+            <Link to={process.env.PUBLIC_URL + '/signin'}>Sign In</Link>
           </P>
         </Content>
       </Wrapper>

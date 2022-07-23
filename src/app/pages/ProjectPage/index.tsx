@@ -3,7 +3,6 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components';
 import { Dashboard } from './Dashboard/Loadable';
-import { useParams } from 'react-router-dom';
 import { HomeCard } from './Templates/Portfolio/1/Home';
 import { AboutMeCard } from './Templates/Portfolio/1/AboutMe';
 import { NavBar } from 'app/components/NavBar';
@@ -12,14 +11,14 @@ import Swipeable from 'app/components/Swipeable';
 import { ContactCard } from './Templates/Portfolio/Contact';
 
 export function ProjectPage() {
-  const { section } = useParams<never>();
-
   const urlString = (sec: string) => {
     if (!sec) return '/';
     else {
       return '/' + sec;
     }
   };
+
+  const section = 'portfolio';
 
   const renderMain = (type: string) => {
     let el: React.ReactNode;

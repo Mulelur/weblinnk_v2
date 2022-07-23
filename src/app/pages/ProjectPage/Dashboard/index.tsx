@@ -9,7 +9,6 @@ import im from './assets/preview.jpeg';
 import { Card } from './components/Card';
 import { PageContainer } from 'app/components/common/layout/PageContainer';
 import { gql, useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom';
 
 const SITE = gql`
   query ($id: ID!) {
@@ -28,7 +27,7 @@ const SITE = gql`
   }
 `;
 export function Dashboard() {
-  const { id } = useParams<never>();
+  const id = 3;
   const { loading, error, data } = useQuery(SITE, {
     variables: {
       id,

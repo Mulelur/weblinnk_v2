@@ -2,10 +2,10 @@ import * as React from 'react';
 import styled from 'styled-components/macro';
 import { Title } from '../components/Title';
 import { ReactComponent as AddIcon } from './assets/add-icon.svg';
+import { LoadingIndicator } from 'app/components/LoadingIndicator';
 import { Card } from './Card';
 import { Button } from './components/Button';
 import { gql, useQuery } from '@apollo/client';
-import { useHistory } from 'react-router-dom';
 
 const SITES = gql`
   query {
@@ -13,7 +13,6 @@ const SITES = gql`
       data {
         id
         attributes {
-          siteId
           status
           siteUrl
           siteName
@@ -38,9 +37,13 @@ const SITES = gql`
 
 export function Projects() {
   const { loading, error, data } = useQuery(SITES);
-  const history = useHistory();
 
-  if (loading) return <>'Loading...'</>;
+  if (loading)
+    return (
+      <>
+        <LoadingIndicator />
+      </>
+    );
   if (error) return <>`Error! ${error.message}`</>;
 
   console.log(data);
@@ -56,7 +59,7 @@ export function Projects() {
         ))}
       </List>
       <Button
-        onClick={() => history.push(process.env.PUBLIC_URL + '/create-site')}
+      // onClick={() => history.push(process.env.PUBLIC_URL + '/create-site')}
       >
         <AddIcon />
       </Button>

@@ -22,43 +22,43 @@ const CREATE_Template = gql`
   }
 `;
 
-const CREATE_SITE = gql`
-  mutation ($data: SiteInput!) {
-    createSite(data: $data) {
-      data {
-        id
-        attributes {
-          siteId
-          status
-          siteUrl
-          siteName
-          category
-          template {
-            data {
-              attributes {
-                pages {
-                  homePage {
-                    id
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+// const CREATE_SITE = gql`
+//   mutation ($data: SiteInput!) {
+//     createSite(data: $data) {
+//       data {
+//         id
+//         attributes {
+//           siteId
+//           status
+//           siteUrl
+//           siteName
+//           category
+//           template {
+//             data {
+//               attributes {
+//                 pages {
+//                   homePage {
+//                     id
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export function CreateSitePage() {
   let input;
 
-  const [createSite, { data, loading, error }] = useMutation(CREATE_SITE);
+  // const [createSite, { data, loading, error }] = useMutation(CREATE_SITE);
 
   const [createTemplate, { data: D, loading: L, error: E }] =
     useMutation(CREATE_Template);
 
-  console.log(data);
+  // console.log(data);
 
   console.log(D);
 
@@ -66,19 +66,19 @@ export function CreateSitePage() {
 
   console.log(E);
 
-  const createSiteHandler = () => {
-    createSite({
-      variables: {
-        data: {
-          siteName: input.value,
-          template: D.createTemplate.data.id,
-          siteId: '12e3fq4t3w5t',
-          siteUrl: 'https://app.weblinnk.com/',
-          category: 'website', // "portfolio", "blog", "website"
-        },
-      },
-    });
-  };
+  // const createSiteHandler = () => {
+  //   createSite({
+  //     variables: {
+  //       data: {
+  //         siteName: input.value,
+  //         template: D.createTemplate.data.id,
+  //         siteId: '12e3fq4t3w5t',
+  //         siteUrl: 'https://app.weblinnk.com/',
+  //         category: 'website', // "portfolio", "blog", "website"
+  //       },
+  //     },
+  //   });
+  // };
 
   const createTemplateHandler = () => {
     createTemplate({
@@ -113,9 +113,9 @@ export function CreateSitePage() {
     input.value = '';
   };
 
-  if (loading) return <>'Submitting...'</>;
+  // if (loading) return <>'Submitting...'</>;
 
-  if (error) return <>`Submission error! ${error.message}`</>;
+  // if (error) return <>`Submission error! ${error.message}`</>;
 
   return (
     <>
