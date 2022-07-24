@@ -5,20 +5,134 @@ import { Column } from 'app/components/common/layout/Column';
 import { Row } from 'app/components/common/layout/Row';
 import { Label } from 'app/components/common/feedback/Label';
 import { Input } from 'app/components/common/feedback/Input';
-import { SingleUploader } from 'app/components/Uploader/SingleUploader';
 import { ReactComponent as AboutMeIcon } from './assets/aboutMe-icon.svg';
-import { Gap } from 'app/components/common/layout/Gap';
-import { MultipleUploader } from 'app/components/Uploader/MultipleUploader';
 import { Card } from 'app/pages/ProjectPage/Dashboard/components/Card';
 import { Form, FormGroup } from 'app/pages/Auth/SignInPage/SignInForm';
 import { PageContainer } from 'app/components/common/layout/PageContainer';
+
+import { gql, useMutation, useQuery } from '@apollo/client';
+import { PrimaryButton } from 'app/components/common/buttons/primary';
 
 type Props = {
   title: string;
 };
 
+const UPDATE_ABOUT_PAGE = gql`
+  mutation ($data: TemplateInput!) {
+    updateTemplate(id: 2, data: $data) {
+      data {
+        id
+      }
+    }
+  }
+`;
+
+const GET_TEMPLATE_ABOUT_PAGE = gql`
+  query {
+    template(id: 2) {
+      data {
+        attributes {
+          pages {
+            homePage {
+              title1
+              title2
+              title3
+              link1
+              link2
+            }
+            aboutPage {
+              title1
+              title2
+              text1
+            }
+            contactPage {
+              title1
+              title2
+              text1
+              email
+              phone
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 export function AboutMeCard(props: Props) {
   const { title } = props;
+
+  let input: {
+    title1: HTMLInputElement | null;
+    title2: HTMLInputElement | null;
+    text1: HTMLInputElement | null;
+  } = {
+    title1: null,
+    title2: null,
+    text1: null,
+  };
+
+  const updateAboutPageHandler = () => {
+    updateAboutPage({
+      variables: {
+        data: {
+          pages: {
+            aboutPage: {
+              title1: input.title1?.value,
+              title2: input.title2?.value,
+              text1: input.text1?.value,
+            },
+            contactPage: {
+              title1:
+                aboutPage.template.data.attributes.pages.contactPage.title1,
+              title2:
+                aboutPage.template.data.attributes.pages.contactPage.title2,
+              text1: aboutPage.template.data.attributes.pages.contactPage.text1,
+              email: aboutPage.template.data.attributes.pages.contactPage.email,
+              phone: aboutPage.template.data.attributes.pages.contactPage.phone,
+            },
+            homePage: {
+              title1: aboutPage.template.data.attributes.pages.homePage.title1,
+              title2: aboutPage.template.data.attributes.pages.homePage.title2,
+              title3: aboutPage.template.data.attributes.pages.homePage.title3,
+              link1: aboutPage.template.data.attributes.pages.homePage.link1,
+              link2: aboutPage.template.data.attributes.pages.homePage.link2,
+            },
+          },
+        },
+      },
+    });
+  };
+
+  const [updateAboutPage, { data, loading, error }] =
+    useMutation(UPDATE_ABOUT_PAGE);
+
+  const {
+    loading: L,
+    error: E,
+    data: aboutPage,
+  } = useQuery(GET_TEMPLATE_ABOUT_PAGE);
+
+  if (L) return <>'Loading...'</>;
+  if (E) return <>`Error! ${E.message}`</>;
+
+  if (loading) return <>'Submitting...'</>;
+  if (error) return <>`Submission error! ${error.message}`</>;
+
+  localStorage.setItem('aboutPage', JSON.stringify(data));
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    updateAboutPageHandler();
+
+    input = {
+      title1: null,
+      title2: null,
+      text1: null,
+    };
+  };
+
   return (
     <PageContainer>
       <Card>
@@ -31,37 +145,54 @@ export function AboutMeCard(props: Props) {
           </Header>
           <Row>
             <Column>
-              <Form>
+              <Form onSubmit={handleSubmit}>
                 <FormGroup>
                   <Label>Title 1</Label>
-                  <Input type="text" placeholder="Enter something here!" />
+                  <Input
+                    ref={node => {
+                      input.title1 = node;
+                    }}
+                    type="text"
+                    placeholder={
+                      aboutPage.template.data.attributes.pages.aboutPage.title1
+                    }
+                    defaultValue={
+                      aboutPage.template.data.attributes.pages.aboutPage.title1
+                    }
+                  />
                 </FormGroup>
                 <FormGroup>
                   <Label>Title 2</Label>
-                  <Input type="text" placeholder="Enter something here!" />
+                  <Input
+                    ref={node => {
+                      input.title2 = node;
+                    }}
+                    type="text"
+                    placeholder={
+                      aboutPage.template.data.attributes.pages.aboutPage.title2
+                    }
+                    defaultValue={
+                      aboutPage.template.data.attributes.pages.aboutPage.title2
+                    }
+                  />
                 </FormGroup>
                 <FormGroup>
                   <Label>Text 1</Label>
-                  <Input type="text" placeholder="Enter something here!" />
+                  <Input
+                    ref={node => {
+                      input.text1 = node;
+                    }}
+                    type="text"
+                    placeholder={
+                      aboutPage.template.data.attributes.pages.aboutPage.text1
+                    }
+                    defaultValue={
+                      aboutPage.template.data.attributes.pages.aboutPage.text1
+                    }
+                  />
                 </FormGroup>
-                <Row>
-                  <FormGroup>
-                    <Label>Link 1</Label>
-                    <Input type="text" placeholder="Enter something here!" />
-                  </FormGroup>
-                  <Gap />
-                  <FormGroup>
-                    <Label>Link 2</Label>
-                    <Input type="text" placeholder="Enter something here!" />
-                  </FormGroup>
-                </Row>
+                <PrimaryButton>Save</PrimaryButton>
               </Form>
-            </Column>
-            <Column>
-              <Uploads>
-                <SingleUploader type="image" />
-                <MultipleUploader type="document" />
-              </Uploads>
             </Column>
           </Row>
         </Content>
@@ -92,9 +223,4 @@ const IconWrapper = styled.div`
 
 const Content = styled.div`
   width: 100%;
-`;
-
-const Uploads = styled.div`
-  width: 100%;
-  height: 100%;
 `;

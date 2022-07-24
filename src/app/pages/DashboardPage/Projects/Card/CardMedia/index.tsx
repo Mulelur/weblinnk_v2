@@ -3,15 +3,16 @@ import styled from 'styled-components/macro';
 
 type Props = {
   src?: string;
+  category: string;
 };
 
 export function CardMedia(props: Props) {
-  const { src } = props;
+  const { src, category } = props;
   return (
     <>
       <Wrapper>
         <Image src={src} />
-        <Category>Law Codes</Category>
+        <Category>{category}</Category>
       </Wrapper>
     </>
   );

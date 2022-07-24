@@ -1,38 +1,71 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
 import { Title } from '../components/Title';
-// import { SubTitle } from '../components/SubTitle';
-// import { P } from '../components/P';
-// import { A } from 'app/components/A';
-// import { GithubRepoForm } from './GithubRepoForm';
-// import { LanguageSwitch } from './LanguageSwitch';
+import { useNavigate } from 'react-router-dom';
 import { ReactComponent as AddIcon } from './assets/add-icon.svg';
-
-// import { useTranslation } from 'react-i18next';
-// import { Link } from 'app/components/Link';
-// import { messages } from '../messages';
+import { LoadingIndicator } from 'app/components/LoadingIndicator';
 import { Card } from './Card';
 import { Button } from './components/Button';
+import { gql, useQuery } from '@apollo/client';
+import Backdrop from '@mui/material/Backdrop';
+
+const SITES = gql`
+  query {
+    sites {
+      data {
+        id
+        attributes {
+          status
+          siteUrl
+          siteName
+          previewUrl
+          template {
+            data {
+              attributes {
+                pages {
+                  homePage {
+                    id
+                  }
+                }
+              }
+            }
+          }
+          category
+        }
+      }
+    }
+  }
+`;
 
 export function Projects() {
+  const { loading, error, data } = useQuery(SITES);
+
+  const navigate = useNavigate();
+
+  if (loading)
+    return (
+      <>
+        <Backdrop
+          sx={{ color: '#fff', zIndex: theme => theme.zIndex.drawer + 1 }}
+          open={true}
+        >
+          <LoadingIndicator />
+        </Backdrop>
+      </>
+    );
+  if (error) return <>`Error! ${error.message}`</>;
+
   return (
     <>
       <Title as="h2">Projects</Title>
       <List>
-        <Project>
-          <Card imageSrc="https://images.unsplash.com/photo-1651724682401-a10daf761c96?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80" />
-        </Project>
-        <Project>
-          <Card imageSrc="https://images.unsplash.com/photo-1651648814980-55936f67f9f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" />
-        </Project>
-        <Project>
-          <Card imageSrc="https://images.unsplash.com/photo-1651860207580-ddc55836bd8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" />
-        </Project>
-        <Project>
-          <Card imageSrc="https://images.unsplash.com/photo-1636837955417-2d8a4e49368f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
-        </Project>
+        {data.sites.data.map(site => (
+          <Project key={site.id} href={process.env.PUBLIC_URL + `/project`}>
+            <Card site={site.attributes} />
+          </Project>
+        ))}
       </List>
-      <Button>
+      <Button onClick={() => navigate(process.env.PUBLIC_URL + '/create-site')}>
         <AddIcon />
       </Button>
     </>
@@ -48,11 +81,13 @@ const List = styled.div`
   padding-bottom: 4rem;
 `;
 
-const Project = styled.div`
+const Project = styled.a`
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: currentColor;
+  text-decoration: none;
 `;

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { PrimaryButton } from 'app/components/common/buttons/primary';
 import { Input } from 'app/components/common/feedback/Input';
 import { Label } from 'app/components/common/feedback/Label';
@@ -5,24 +6,92 @@ import { H1 } from 'app/components/common/typography/H1';
 import { H4 } from 'app/components/common/typography/H4';
 import { P } from 'app/components/common/typography/P/P';
 import { Link } from 'app/components/Link';
-import * as React from 'react';
 import styled from 'styled-components/macro';
 
+import { gql, useMutation } from '@apollo/client';
+import { useNavigate } from 'react-router-dom';
+
+const CREATE_USER = gql`
+  mutation ($input: UsersPermissionsLoginInput!) {
+    login(input: $input) {
+      jwt
+    }
+  }
+`;
+
+type RequestData = {
+  password: HTMLInputElement | null;
+  identifier: HTMLInputElement | null;
+};
+
 export function SignInForm() {
+  const navigate = useNavigate();
+  const [createTemplate, { data: D, loading: L, error: E }] =
+    useMutation(CREATE_USER);
+
+  // save jwt to local storage
+  if (D) {
+    localStorage.setItem('jwt', D.login.jwt);
+
+    navigate('/');
+  }
+
+  if (L) return <>'Loading...'</>;
+  if (E) return <>`Error! ${E.message}`</>;
+
+  let reqData: RequestData = {
+    password: null,
+    identifier: null,
+  };
+
+  const createTemplateHandler = () => {
+    createTemplate({
+      variables: {
+        input: {
+          password: reqData.password?.value,
+          identifier: reqData.identifier?.value,
+        },
+      },
+    });
+  };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    createTemplateHandler();
+
+    reqData = {
+      password: null,
+      identifier: null,
+    };
+  };
+
   return (
     <>
       <Wrapper>
         <Content>
           <H1>Sign In</H1>
           <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</P>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <FormGroup>
               <Label>Email</Label>
-              <Input type="email" placeholder="Enter email" />
+              <Input
+                ref={node => {
+                  reqData.identifier = node;
+                }}
+                type="email"
+                placeholder="Enter email"
+              />
             </FormGroup>
             <FormGroup>
               <Label>Password</Label>
-              <Input type="password" placeholder="Enter your password" />
+              <Input
+                ref={node => {
+                  reqData.password = node;
+                }}
+                type="password"
+                placeholder="Enter your password"
+              />
             </FormGroup>
             <FormGroup>
               <H4>Keep me log in</H4>
@@ -32,7 +101,8 @@ export function SignInForm() {
             </FormGroup>
           </Form>
           <P>
-            Don't have an account? <Link to="/signup">Sign Up</Link>
+            Don't have an account?{' '}
+            <Link to={process.env.PUBLIC_URL + '/signup'}>Sign Up</Link>
           </P>
         </Content>
       </Wrapper>
@@ -59,7 +129,7 @@ export const Content = styled.div`
 
 export const Form = styled.form`
   width: 100%;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 `;
 
 export const FormGroup = styled.div`

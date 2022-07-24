@@ -17,9 +17,21 @@ export function SideBar() {
 
 const Wrapper = styled.div`
   height: 100%;
-  width: 15rem;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 252px;
+  height: 100%
+  display: flex;
+  gap: 36px;
+  flex-direction: column;
+  padding: 36px 28px 32px;
+  box-sizing: border-box;
+  background-color: rgba(86, 105, 147, 0.024);
   border-right: 1px solid ${p => p.theme.borderLight};
   padding: 0.8rem;
+  padding-top: 0;
   background-color: ${p => p.theme.background};
   z-index: 2;
 
@@ -32,31 +44,13 @@ const Wrapper = styled.div`
       )};
   }
 
-  display: flex;
-  flex-direction: column;
-
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  width: 252px;
-  display: flex;
-  gap: 36px;
-  flex-direction: column;
-  padding: 36px 28px 32px;
-  box-sizing: border-box;
-  background-color: rgba(86, 105, 147, 0.024);
-
-  border-right: 1px solid rgba(58, 52, 51, 0.05);
-
   @media only screen and (max-width: 768px) {
     display: none;
   }
 `;
 
 const Divider = styled.div`
-  height: 0.1rem;
+  height: 0.05rem;
   width: 100%;
   background-color: ${p => p.theme.borderLight};
-  margin: 1.3rem 0 0 0;
 `;

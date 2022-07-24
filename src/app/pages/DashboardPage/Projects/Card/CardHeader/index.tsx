@@ -1,10 +1,15 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-export function CardHeader() {
+type Props = {
+  siteName: string;
+};
+
+export function CardHeader(props: Props) {
+  const { siteName } = props;
   return (
     <>
-      <Wrapper>Projects</Wrapper>
+      <Wrapper>{siteName}</Wrapper>
     </>
   );
 }

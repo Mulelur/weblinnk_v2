@@ -41,10 +41,6 @@ export function Settings() {
             </Form>
           </Column>
         </Card>
-        <H1>Project Settings</H1>
-        <Card>
-          <Column>overview</Column>
-        </Card>
       </Content>
     </PageContainer>
   );
