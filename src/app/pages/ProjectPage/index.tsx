@@ -1,45 +1,27 @@
 import { SideBar } from 'app/components/SideBar';
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Dashboard } from './Dashboard/Loadable';
-import { HomeCard } from './Templates/Portfolio/1/Home';
-import { AboutMeCard } from './Templates/Portfolio/1/AboutMe';
+import { selectNav } from './slice/selectors';
 import { NavBar } from 'app/components/NavBar';
 import { Settings } from './Settings';
 import Swipeable from 'app/components/Swipeable';
-import { ContactCard } from './Templates/Portfolio/Contact';
+import { useSelector } from 'react-redux';
 
 export function ProjectPage() {
-  const urlString = (sec: string) => {
-    if (!sec) return '/';
-    else {
-      return '/' + sec;
-    }
-  };
+  const { section } = useSelector(selectNav);
 
-  const section = 'portfolio';
+  console.log(section);
 
   const renderMain = (type: string) => {
     let el: React.ReactNode;
     switch (type) {
-      case '/':
-        el = <Dashboard />;
-        break;
-      case '/home-settings':
-        el = <HomeCard title="Home page" />;
-        break;
-      case '/aboutMe-settings':
-        el = <AboutMeCard title="aboutMe" />;
-        break;
-      case '/settings':
+      case 'settings':
         el = <Settings />;
         break;
-      case '/contact-settings':
-        el = <ContactCard />;
-        break;
       default:
-        el = <>default</>;
+        el = <Dashboard />;
         break;
     }
     return el;
@@ -60,7 +42,7 @@ export function ProjectPage() {
           <SideBar />
           <Swipeable />
           <Main>
-            <MainView>{renderMain(urlString(section))}</MainView>
+            <MainView>{renderMain(section)}</MainView>
           </Main>
         </Content>
       </Container>
@@ -69,10 +51,10 @@ export function ProjectPage() {
 }
 
 export const Container = styled.div`
-  // display: flex;
   background-color: ${p => p.theme.background};
   color: rgb(18, 22, 30);
   height: 100%;
+  width: 100%;
 `;
 
 export const Content = styled.div`
@@ -94,10 +76,15 @@ export const Main = styled.div`
   display: flex;
   flex-direction: column;
   will-change: opacity;
+
+  width: 100%;
+  max-width: 1089px;
+  align-items: center;
 `;
 
 const MainView = styled.div`
   padding: 2rem;
+  width: 100%;
 
   @media only screen and (max-width: 600px) {
     padding: 0.3rem;

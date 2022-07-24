@@ -1,19 +1,22 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
 import { ReactComponent as Dashboard } from './assets/dashboard-icon.svg';
-import { ReactComponent as HomeIcon } from './assets/home-icon.svg';
 import { ReactComponent as SettingsIcon } from './assets/settings-icon.svg';
-import { ReactComponent as BrowserIcon } from './assets/browser-icon.svg';
 import { FormLabel } from '../FormLabel';
+import { useDispatch } from 'react-redux';
+import { useNavigateSlice } from 'app/pages/ProjectPage/slice';
 
 export function Nav() {
+  const dispatch = useDispatch();
+
+  const { actions } = useNavigateSlice();
   return (
     <Wrapper>
       <FormLabel>Site Setting</FormLabel>
       <List>
         <ListItem>
           <Item
-            href={process.env.PUBLIC_URL + '/project/1'}
+            onClick={() => dispatch(actions.setNavigate(''))}
             title="Documentation Page"
             rel="noopener noreferrer"
           >
@@ -23,51 +26,17 @@ export function Nav() {
         </ListItem>
         <ListItem>
           <Item
-            href={process.env.PUBLIC_URL + '/project/1/settings'}
+            onClick={() => dispatch(actions.setNavigate('settings'))}
             title="Github Page"
             rel="noopener noreferrer"
           >
             <SettingsIcon />
-            <ListTitle>Setting</ListTitle>
+            <ListTitle>Settings</ListTitle>
           </Item>
         </ListItem>
       </List>
 
       {/* //////////// */}
-
-      <FormLabel>Page Settings</FormLabel>
-      <List>
-        <ListItem>
-          <Item
-            href={process.env.PUBLIC_URL + '/project/1/home-settings'}
-            title="Documentation Page"
-            rel="noopener noreferrer"
-          >
-            <HomeIcon />
-            <ListTitle>Home</ListTitle>
-          </Item>
-        </ListItem>
-        <ListItem>
-          <Item
-            href={process.env.PUBLIC_URL + '/project/1/aboutMe-settings'}
-            title="Documentation Page"
-            rel="noopener noreferrer"
-          >
-            <BrowserIcon />
-            <ListTitle>/About</ListTitle>
-          </Item>
-        </ListItem>
-        <ListItem>
-          <Item
-            href={process.env.PUBLIC_URL + '/project/1/contact-settings'}
-            title="Contact Page"
-            rel="noopener noreferrer"
-          >
-            <BrowserIcon />
-            <ListTitle>/Contact</ListTitle>
-          </Item>
-        </ListItem>
-      </List>
     </Wrapper>
   );
 }

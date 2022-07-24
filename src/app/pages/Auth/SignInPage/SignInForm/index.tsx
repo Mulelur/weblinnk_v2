@@ -9,6 +9,7 @@ import { Link } from 'app/components/Link';
 import styled from 'styled-components/macro';
 
 import { gql, useMutation } from '@apollo/client';
+import { useNavigate } from 'react-router-dom';
 
 const CREATE_USER = gql`
   mutation ($input: UsersPermissionsLoginInput!) {
@@ -24,12 +25,15 @@ type RequestData = {
 };
 
 export function SignInForm() {
+  const navigate = useNavigate();
   const [createTemplate, { data: D, loading: L, error: E }] =
     useMutation(CREATE_USER);
 
   // save jwt to local storage
   if (D) {
     localStorage.setItem('jwt', D.login.jwt);
+
+    navigate('/');
   }
 
   if (L) return <>'Loading...'</>;

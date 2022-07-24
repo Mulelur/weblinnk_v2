@@ -7,6 +7,7 @@ import { H4 } from 'app/components/common/typography/H4';
 import { P } from 'app/components/common/typography/P/P';
 import { Link } from 'app/components/Link';
 import styled from 'styled-components/macro';
+import { useNavigate } from 'react-router-dom';
 
 import { gql, useMutation } from '@apollo/client';
 
@@ -25,12 +26,15 @@ type RequestData = {
 };
 
 export function SignUpForm() {
+  const navigate = useNavigate();
   const [createTemplate, { data: D, loading: L, error: E }] =
     useMutation(CREATE_USER);
 
   // save jwt to local storage
   if (D) {
     localStorage.setItem('jwt', D.register.jwt);
+
+    navigate('/');
   }
 
   if (L) return <>'Loading...'</>;

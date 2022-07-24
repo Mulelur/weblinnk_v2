@@ -100,7 +100,7 @@ export function App() {
               element={<DashboardPage />}
             />
             <Route
-              path={process.env.PUBLIC_URL + '/project/:id?/:section?'}
+              path={process.env.PUBLIC_URL + '/project/*'}
               element={<ProjectPage />}
             />
           </Route>

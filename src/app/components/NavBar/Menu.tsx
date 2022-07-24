@@ -1,8 +1,8 @@
-import { useSwipeableSlice } from 'app/pages/ProjectPage/slice';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components/macro';
 import { ReactComponent as MenuIcon } from './assets/menu-icon.svg';
+import { useSwipeableSlice } from './slice';
 
 export default function Menu() {
   const dispatch = useDispatch();

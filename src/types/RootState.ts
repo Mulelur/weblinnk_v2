@@ -1,6 +1,7 @@
+import { SwipeableState } from 'app/components/NavBar/slice/types';
 import { UserState } from 'app/pages/Auth/slice/types';
 import { GithubRepoFormState } from 'app/pages/HomePage/Features/GithubRepoForm/slice/types';
-import { SwipeableState } from 'app/pages/ProjectPage/slice/types';
+import { NavigateState } from 'app/pages/ProjectPage/slice/types';
 import { ThemeState } from 'styles/theme/slice/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
@@ -14,6 +15,7 @@ export interface RootState {
   theme?: ThemeState;
   githubRepoForm?: GithubRepoFormState;
   user?: UserState;
+  navigate?: NavigateState;
   swipeable?: SwipeableState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

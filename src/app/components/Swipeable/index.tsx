@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import { selectOpen } from 'app/pages/ProjectPage/slice/selectors';
-import { useSwipeableSlice } from 'app/pages/ProjectPage/slice';
 import styled from 'styled-components';
 import { Logo } from '../SideBar/Logo';
 import { Nav } from '../SideBar/Nav';
 import { Upgrade } from '../Upgrade';
+import { useSwipeableSlice } from '../NavBar/slice';
+import { selectOpen } from '../NavBar/slice/selectors';
 
 type Anchor = 'left';
 

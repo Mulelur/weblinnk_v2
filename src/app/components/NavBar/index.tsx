@@ -1,12 +1,16 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
-import { Search } from './Search';
 import { StyleConstants } from 'styles/StyleConstants';
 import { NavBar as Nav } from './NavBar';
 import Menu from './Menu';
+import { Logo } from '../SideBar/Logo';
+import { useLocation } from 'react-router-dom';
+import { Search } from './Search';
 
 export function NavBar() {
   const [isSelected, setIsSelected] = React.useState(false);
+
+  const location = useLocation();
   return (
     <Wrapper
       onClick={() => {
@@ -14,7 +18,7 @@ export function NavBar() {
       }}
     >
       <Menu />
-      <Search />
+      {location.pathname === '*/project' ? <Logo /> : <Search />}
       <Nav />
     </Wrapper>
   );

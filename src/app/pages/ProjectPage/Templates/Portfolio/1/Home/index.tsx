@@ -20,7 +20,7 @@ type Props = {
 
 const UPDATE_HOME_PAGE = gql`
   mutation ($data: TemplateInput!) {
-    updateTemplate(id: 8, data: $data) {
+    updateTemplate(id: 2, data: $data) {
       data {
         id
       }
@@ -30,7 +30,7 @@ const UPDATE_HOME_PAGE = gql`
 
 const GET_TEMPLATE_HOME_PAGE = gql`
   query {
-    template(id: 8) {
+    template(id: 2) {
       data {
         attributes {
           pages {

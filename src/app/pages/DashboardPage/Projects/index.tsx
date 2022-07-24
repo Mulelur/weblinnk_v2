@@ -1,11 +1,13 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
 import { Title } from '../components/Title';
+import { useNavigate } from 'react-router-dom';
 import { ReactComponent as AddIcon } from './assets/add-icon.svg';
 import { LoadingIndicator } from 'app/components/LoadingIndicator';
 import { Card } from './Card';
 import { Button } from './components/Button';
 import { gql, useQuery } from '@apollo/client';
+import Backdrop from '@mui/material/Backdrop';
 
 const SITES = gql`
   query {
@@ -38,29 +40,32 @@ const SITES = gql`
 export function Projects() {
   const { loading, error, data } = useQuery(SITES);
 
+  const navigate = useNavigate();
+
   if (loading)
     return (
       <>
-        <LoadingIndicator />
+        <Backdrop
+          sx={{ color: '#fff', zIndex: theme => theme.zIndex.drawer + 1 }}
+          open={true}
+        >
+          <LoadingIndicator />
+        </Backdrop>
       </>
     );
   if (error) return <>`Error! ${error.message}`</>;
-
-  console.log(data);
 
   return (
     <>
       <Title as="h2">Projects</Title>
       <List>
         {data.sites.data.map(site => (
-          <Project href={process.env.PUBLIC_URL + `/project/${site.id}`}>
+          <Project key={site.id} href={process.env.PUBLIC_URL + `/project`}>
             <Card site={site.attributes} />
           </Project>
         ))}
       </List>
-      <Button
-      // onClick={() => history.push(process.env.PUBLIC_URL + '/create-site')}
-      >
+      <Button onClick={() => navigate(process.env.PUBLIC_URL + '/create-site')}>
         <AddIcon />
       </Button>
     </>
